@@ -1,4 +1,4 @@
-## SILENCER
+# SILENCER
 
 ### Signals Intelligence Wireless Network Security
 ### Brad Williams · Chris Limson
