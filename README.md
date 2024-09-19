@@ -10,7 +10,9 @@ SIGINT Project
 
 For download or GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
 GNU Radio https://www.gnuradio.org  
-```sudo apt install gnuradio```
+```
+sudo apt install gnuradio
+```
 
 ## Notes
 We will describe the basics of what SIGINT is and how Wireless Network Security applies to it, general methodologies, logistics and systems that are fundamental
