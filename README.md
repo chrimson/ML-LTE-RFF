@@ -35,6 +35,14 @@ Demodulation -> decode -> decrypt -> info
 
 At the info source, voice is "digitized", "compressed (voice coding)" After this it follows the same "encrypt -> encode -> modulation"
 
+HW challenge, no simulator, etc.
+
+20-30 research papers
+
+malicious access point detection of secure facility
+
+man-in-the-middle attacking radio signatures
+
 ## Documentation
 (Placeholders)  
 [CYSE640_BradChris_ProjectProposalPresentation.pdf](docs/CYSE640_BradChris_ProjectProposalPresentation.pdf)  
