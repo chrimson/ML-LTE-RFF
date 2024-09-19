@@ -1,6 +1,6 @@
 # SILENCER
 
-### Signals Intelligence Wireless Network Security
+### Signals Intelligence (SIGINT) Wireless Network Security
 ### Brad Williams · Chris Limson
 GMU CYSE 640 Wireless Network Security  
 Fall 2024 · Moinul Hossain, PhD  
@@ -8,7 +8,8 @@ SIGINT Project
 
 ## Resources
 
-For download or GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
+For download or GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com
+
 GNU Radio https://www.gnuradio.org  
 ```
 sudo apt install gnuradio
@@ -35,13 +36,15 @@ Demodulation -> decode -> decrypt -> info
 
 At the info source, voice is "digitized", "compressed (voice coding)" After this it follows the same "encrypt -> encode -> modulation"
 
-HW challenge, no simulator, etc.
+HW challenge, no simulator, no research, etc.
 
 20-30 research papers
 
-malicious access point detection of secure facility
+Malicious access point detection of secure facility
 
-man-in-the-middle attacking radio signatures
+Man-in-the-middle attacking radio signatures
+
+Honeypot
 
 ## Documentation
 (Placeholders)  
