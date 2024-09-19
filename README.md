@@ -8,7 +8,7 @@ SIGINT Project
 
 ## Resources
 
-MATLAB  
+MATLAB https://matlab.mathworks.com  
 Simulink  
 GNU Radio  
 
@@ -34,8 +34,10 @@ Demodulation -> decode -> decrypt -> info
 At the info source, voice is "digitized", "compressed (voice coding)" After this it follows the same "encrypt -> encode -> modulation"
 
 ## Documentation
-For more detail,
-[Proposal.pdf](Proposal.pdf)
+[CYSE640_BradChris_ProposalPresentation.pdf](docs/CYSE640_BradChris_ProposalPresentation.pdf)  
+[CYSE640_BradChris_ProjectProposal.pdf](docs/CYSE640_BradChris_ProjectProposal.pdf)  
+[CYSE640_BradChris_ProjectFinalPresentation.pdf](docs/CYSE640_BradChris_ProjectFinalPresentation.pdf)  
+[CYSE640_BradChris_ProjectFinalReport.pdf](docs/CYSE640_BradChris_ProjectFinalReport.pdf)  
 
 ## Reference
 [https://chrimson.github.io/SILENCER](https://chrimson.github.io/SILENCER)  
