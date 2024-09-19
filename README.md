@@ -1,4 +1,4 @@
-# SILENCER
+# SILENCE
 
 ### Signals Intelligence (SIGINT) Wireless Network Security
 ### Brad Williams · Chris Limson
@@ -13,7 +13,7 @@ Download details:
 matlab_R2024b_Windows.exe (220 MB; SHA256: 2a32ddff3186306f5ed6c1b2dc996ee0978b5990f623f6511a651728e3c269f3)
 
 GNU Radio https://www.gnuradio.org  
-On Ubuntu 22.04
+On Ubuntu 24.04
 
 ```
 sudo apt install gnuradio
