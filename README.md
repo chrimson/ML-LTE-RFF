@@ -16,7 +16,7 @@ Initial attack demonstrated by how basic MATLAB model receives LTE
 
 Defender's counter-attack might be to obfuscate the validity of the channel, by generating multiple honeypots
 
-Counter-counter-attack would then be to simulate radio fingerprinting of promary device, versus burner phones, to select authenticated
+Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated
 
 
 ## Resources
