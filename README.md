@@ -72,6 +72,7 @@ Man-in-the-middle attacking radio signatures
 
 ## Reference
 [https://chrimson.github.io/SILENCE](https://chrimson.github.io/SILENCE)  
+[https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
 
 ## License
 [MIT](LICENSE)
