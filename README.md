@@ -48,7 +48,7 @@ Malicious access point detection of secure facility
 
 Man-in-the-middle attacking radio signatures
 
-Honeypot
+Honeypot, Radio fingerprinting
 
 ## Documentation
 (Placeholders)  
