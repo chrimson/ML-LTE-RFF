@@ -48,7 +48,7 @@ Malicious access point detection of secure facility
 
 Man-in-the-middle attacking radio signatures
 
-Honeypot, Radio fingerprinting
+Honeypot, Radio fingerprinting https://en.wikipedia.org/wiki/Radio_fingerprinting
 
 ## Documentation
 (Placeholders)  
