@@ -12,11 +12,11 @@ The goal of collecting data from devices that employ Long-Term Evolution (LTE) p
 When authorities do it, it's called SIGINT. When hackers do it, it's called eavesdropping.
 For the sake of avoiding confusion about which perspective we mean, let's simply adhere to the convention that the attacker collects the wireless signals while the defender protects them
 
-Initial attack demonstrated by how basic MATLAB model receives LTE
+Initial attack demonstrated by how basic MATLAB model receives LTE, LTE Toolbox end-to-end link-level simulation
 
 Defender's counter-attack might be to obfuscate the validity of the channel, by generating multiple honeypots
 
-Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated
+Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated. RF impairments with Communications Toolbox, Simulink
 
 
 ## Resources
