@@ -18,6 +18,7 @@ Defender's counter-attack might be to obfuscate the validity of the channel, by 
 
 Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated. RF impairments with Communications Toolbox, Simulink
 
+
 ## Resources
 
 For download or online with GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
@@ -32,9 +33,14 @@ sudo apt install gnuradio
 gnuradio-companion
 ```
 
+
 ## Reference
 Step-by-step instructions [https://chrimson.github.io/SILENCE](https://chrimson.github.io/SILENCE)  
-[https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
+Performance Evaluation of LTE Radio Fingerprinting using Field Measurements [https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)  
+LTE Device Identification Based on RF Fingerprint with Multi-Channel Convolutional Neural Network [https://ieeexplore.ieee.org/document/9685067](https://ieeexplore.ieee.org/document/9685067)  
+Performance evaluation of LTE radio fingerprint positioning with timing advancing [https://ieeexplore.ieee.org/abstract/document/7459984](https://ieeexplore.ieee.org/abstract/document/7459984)  
+Radio Frequency Fingerprints Extraction for LTE-V2X: A Channel Estimation Based Methodology [https://arxiv.org/pdf/2301.01446](https://arxiv.org/pdf/2301.01446)  
+
 
 ## Documentation
 (placeholders for now)  
@@ -42,8 +48,6 @@ Step-by-step instructions [https://chrimson.github.io/SILENCE](https://chrimson.
 [CYSE640_BradChris_ProjectProposalReport.pdf](docs/CYSE640_BradChris_ProjectProposalReport.pdf)  
 [CYSE640_BradChris_ProjectFinalPresentation.pdf](docs/CYSE640_BradChris_ProjectFinalPresentation.pdf)  
 [CYSE640_BradChris_ProjectFinalReport.pdf](docs/CYSE640_BradChris_ProjectFinalReport.pdf)  
-
-
 
 
 ## Notes
@@ -73,6 +77,7 @@ Man-in-the-middle attacking radio signatures
 ~~Demodulation -> decode -> decrypt -> info~~
 
 ~~At the info source, voice is "digitized", "compressed (voice coding)" After this it follows the same "encrypt -> encode -> modulation"~~
+
 
 ## License
 [MIT](LICENSE)
