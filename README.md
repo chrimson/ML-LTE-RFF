@@ -18,7 +18,6 @@ Defender's counter-attack might be to obfuscate the validity of the channel, by 
 
 Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated. RF impairments with Communications Toolbox, Simulink
 
-
 ## Resources
 
 For download or online with GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
@@ -26,13 +25,25 @@ Download details:
 matlab_R2024b_Windows.exe (220 MB; SHA256: 2a32ddff3186306f5ed6c1b2dc996ee0978b5990f623f6511a651728e3c269f3)
 
 GNU Radio https://www.gnuradio.org  
-On Ubuntu 24.04
-
+On Ubuntu 24.04  
 ```
 sudo apt install gnuradio
 
 gnuradio-companion
 ```
+
+## Reference
+Step-by-step instructions [https://chrimson.github.io/SILENCE](https://chrimson.github.io/SILENCE)  
+[https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
+
+## Documentation
+(placeholders for now)  
+[CYSE640_BradChris_ProjectProposalPresentation.pdf](docs/CYSE640_BradChris_ProjectProposalPresentation.pdf)  
+[CYSE640_BradChris_ProjectProposalReport.pdf](docs/CYSE640_BradChris_ProjectProposalReport.pdf)  
+[CYSE640_BradChris_ProjectFinalPresentation.pdf](docs/CYSE640_BradChris_ProjectFinalPresentation.pdf)  
+[CYSE640_BradChris_ProjectFinalReport.pdf](docs/CYSE640_BradChris_ProjectFinalReport.pdf)  
+
+
 
 
 ## Notes
@@ -62,17 +73,6 @@ Man-in-the-middle attacking radio signatures
 ~~Demodulation -> decode -> decrypt -> info~~
 
 ~~At the info source, voice is "digitized", "compressed (voice coding)" After this it follows the same "encrypt -> encode -> modulation"~~
-
-## Documentation
-(Placeholders)  
-[CYSE640_BradChris_ProjectProposalPresentation.pdf](docs/CYSE640_BradChris_ProjectProposalPresentation.pdf)  
-[CYSE640_BradChris_ProjectProposalReport.pdf](docs/CYSE640_BradChris_ProjectProposalReport.pdf)  
-[CYSE640_BradChris_ProjectFinalPresentation.pdf](docs/CYSE640_BradChris_ProjectFinalPresentation.pdf)  
-[CYSE640_BradChris_ProjectFinalReport.pdf](docs/CYSE640_BradChris_ProjectFinalReport.pdf)  
-
-## Reference
-[https://chrimson.github.io/SILENCE](https://chrimson.github.io/SILENCE)  
-[https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
 
 ## License
 [MIT](LICENSE)
