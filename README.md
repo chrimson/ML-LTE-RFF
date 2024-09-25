@@ -62,7 +62,7 @@ Enhanced Device FingerPrinting in 4G LTE Communication Networks [http://drsr.dai
 
 
 ## Notes
-
+Web references below should be taken with a grain of salt 🧂
 https://en.wikipedia.org/wiki/Radio_fingerprinting  
 [Google: radio fingerprinting matlab](https://www.google.com/search?q=radio+fingerprinting+matlab&oq=radio+fingerprinting+matlab&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBNIBCTQwOTA0ajFqNKgCDrACAQ&client=ms-android-motorola-rvo3&sourceid=chrome-mobile&ie=UTF-8)    
 HW challenge, no simulator, no research, etc.  
