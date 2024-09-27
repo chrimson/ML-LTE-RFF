@@ -5,7 +5,7 @@
 GMU CYSE 640 Wireless Network Security  
 Fall 2024 · Moinul Hossain, PhD  
 
-![](images/monolith.jpg)
+<img src="images/monolith.jpg" width="200" height="300">
 
 The goal of collecting data from devices that employ Long-Term Evolution (LTE) presents challenges with the protection of confidentiality and authentication of integrity
 
