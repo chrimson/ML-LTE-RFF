@@ -1,3 +1,27 @@
+The goal of collecting data from devices that employ Long-Term Evolution (LTE) presents challenges with the protection of confidentiality and authentication of integrity
+
+When authorities do it, it's called SIGINT. When hackers do it, it's called eavesdropping.
+For the sake of avoiding confusion about which perspective we mean, let's simply adhere to the convention that the attacker collects the wireless signals while the defender protects them
+
+Initial attack demonstrated by how basic MATLAB model receives LTE. Uses LTE Toolbox end-to-end link-level simulation
+
+Defender's counter-attack might be to obfuscate the validity of the channel, by generating multiple honeypots
+
+Counter-counter-attack would then be to simulate radio fingerprinting of primary device, versus burner phones, to select authenticated. RF impairments with Communications Toolbox, Simulink
+
+Download details:  
+matlab_R2024b_Windows.exe (220 MB; SHA256: 2a32ddff3186306f5ed6c1b2dc996ee0978b5990f623f6511a651728e3c269f3)
+
+
+Web references below should be taken with a grain of salt 🧂  
+https://en.wikipedia.org/wiki/Radio_fingerprinting  
+[Google: radio fingerprinting matlab](https://www.google.com/search?q=radio+fingerprinting+matlab&oq=radio+fingerprinting+matlab&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIKCAIQABiABBiiBDIKCAMQABiABBiiBDIKCAQQABiABBiiBDIKCAUQABiABBiiBNIBCTQwOTA0ajFqNKgCDrACAQ&client=ms-android-motorola-rvo3&sourceid=chrome-mobile&ie=UTF-8)  
+HW challenge, no simulator, no research, etc.  
+20-30 research papers  
+Malicious access point detection of secure facility  
+Man-in-the-middle attacking radio signatures  
+
+
 ~~We will describe the basics of what SIGINT is and how Wireless Network Security applies to it, general methodologies, logistics and systems that are fundamental~~
 
 ~~And then areas that are potentially open for innovation, development and investigation. How signal analysis can still be written for MATLAB to include environmental or experimental simulations~~
