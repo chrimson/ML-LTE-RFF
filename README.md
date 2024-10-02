@@ -48,7 +48,7 @@ December 4 - Present
 ---
 
 ### Resources
-Step-by-step instructions [https://chrimson.github.io/FILTERED](https://chrimson.github.io/FILTERED)
+Step-by-step instructions [https://chrimson.github.io/MULLET](https://chrimson.github.io/MULLET)
 
 For download or online with GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
 
