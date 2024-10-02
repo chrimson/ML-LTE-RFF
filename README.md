@@ -5,7 +5,7 @@
 GMU CYSE 640 Wireless Network Security  
 Fall 2024 · Moinul Hossain, PhD  
 
-<img src="mullet_fingerprinter.jpg" width="200" height="300">
+<img src="images/mullet_fingerprinter.jpg" width="200" height="300">
 
 ### Problem Statement
 When a device attempts to connect to a base station, it needs to be authenticated and processed unless it has been authenticated before.  With LTE, it increases the complexity for authentication due to the LTE standards that are necessary to implement.  With technology becoming more advanced, there are an increasing number of ways to spoof a device’s MAC Address, IP address or other identifying information.
@@ -80,10 +80,10 @@ RF fingerprinting for user locationing in LTE/WLAN networks [https://jyx.jyu.fi/
 Enhanced Device FingerPrinting in 4G LTE Communication Networks [http://drsr.daiict.ac.in/handle/123456789/1055](http://drsr.daiict.ac.in/handle/123456789/1055)
 
 ### Documentation
-[CYSE640_BradChris_ProjectProposalPresentation.pdf](docs/CYSE640_BradChris_ProjectProposalPresentation.pdf)
+[CYSE640_BradChris_ProjectProposalPresentation.pdf](docs/CYSE640_BradChris_ProjectProposalPresentation.pdf)  
+[CYSE640_BradChris_ProjectProposalReport.pdf](docs/CYSE640_BradChris_ProjectProposalReport.pdf)
 
 (below are placeholders for now)  
-[CYSE640_BradChris_ProjectProposalReport.pdf](docs/CYSE640_BradChris_ProjectProposalReport.pdf)  
 [CYSE640_BradChris_ProjectFinalPresentation.pdf](docs/CYSE640_BradChris_ProjectFinalPresentation.pdf)  
 [CYSE640_BradChris_ProjectFinalReport.pdf](docs/CYSE640_BradChris_ProjectFinalReport.pdf)  
 
