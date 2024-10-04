@@ -13,7 +13,7 @@ On AWS Ubuntu nodes, Kubernetes platform orchestration, Docker containerization
 
 These containers are interchangeable with base station hardware:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MATLAB CLI script (.m) to generate LTE compliant modulated uplink waveform which will include RF fingerprint (RFF) then impairments, simulating device (UE) connection to Evolved Node Base (eNB base station)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MATLAB CLI script (.m) to generate LTE compliant modulated uplink waveform](src/LTE_Uplink_RMC.m) which will include RF fingerprint (RFF) then impairments, simulating device (UE) connection to Evolved Node Base (eNB base station)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before demodulation, apply filters and OFDM to extract RFF
 
