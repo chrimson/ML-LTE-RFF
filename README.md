@@ -6,22 +6,23 @@ RF Fingerprint
 Impairments
 
 ### GNU Radio
+Python  
 SigMF
 
 ### MongoDB
 Golang
 
 ### TensorFlow
-C++
+C++  
 Convolutional Neural Network
 
 ### Docker
 Containers
-NGINX
 
 ### Kubernetes
 
 ### Ubuntu
+NGINX
 
 ### AWS
 
