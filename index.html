@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head><title>MULLET - ML LTE Fingerprinter</title></head>
 <body style="font-family:Arial,Helvetica,sans-serif;background-color:#000;color:#fff;">
+
 <h1>MULLET - ML LTE Fingerprinter</h1>
 <h3>Brad Williams · Chris Limson</h3>
 GMU CYSE 640 Wireless Network Security<br/>  
@@ -11,37 +12,38 @@ Fall 2024 · Moinul Hossain, PhD<p/>
 <h2>System</h2>
 
 On AWS Ubuntu nodes, Kubernetes platform orchestration, Docker containerization<p/>
-These containers are interchangeable with base station hardware:
+These containers are interchangeable with base station hardware:<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MATLAB CLI script (.m) to generate LTE compliant modulated uplink waveform](src/LTE_Uplink_RMC.m) which will include RF fingerprint (RFF) then impairments, simulating device (UE) connection to Evolved Node Base (eNB base station)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MATLAB CLI script (.m) to generate LTE compliant modulated uplink waveform](src/LTE_Uplink_RMC.m) which will include RF fingerprint (RFF) then impairments, simulating device (UE) connection to Evolved Node Base (eNB base station)<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before demodulation, apply filters and OFDM to extract RFF
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before demodulation, apply filters and OFDM to extract RFF<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC<p/>
     
-    GNU Radio (Python) collect RFF Signal Metadata Format (sigMF)
+    GNU Radio (Python) collect RFF Signal Metadata Format (sigMF)<p/>
     
-    MongoDB (Golang) to store RFF sigMF, and UE metadata
+    MongoDB (Golang) to store RFF sigMF, and UE metadata<p/>
     
-    TensorFlow (C++) to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications
+    TensorFlow (C++) to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
     
     
 <h2>Experiment</h2>
     
-    Connect with a defined RFF to our UE
+    Connect with a defined RFF to our UE<p/>
     
-    Not found, but RFF and UE stored anyway to contribute DL
+    Not found, but RFF and UE stored anyway to contribute DL<p/>
     
-    Connect again with the following, evaluate results
+    Connect again with the following, evaluate results<p/>
     
-    | RFF       | UE        |
-    | --------- | --------- |
-    | different | different |
-    | different | same      |
-    | same      | different |
-    | same      | same      |
+    <table>
+        <tr><th>RFF</th><th>UE</th></tr>
+        <tr><td>different</td><td>different</td></tr>
+        <tr><td>different</td><td>same</td></tr>
+        <tr><td>same</td><td>different</td></tr>
+        <tr><td>same</td><td>same</td></tr>
+    </table>
     
-    Also several trials, several RFFs
+    Also several trials, several RFFs<p/>
     
     
     
@@ -49,46 +51,44 @@ These containers are interchangeable with base station hardware:
 
 <a href="https://github.com/chrimson/MULLET" index=_blank>GitHub Detail</a><p/>
     
-For download or online with GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com  
+For download or online with GMU's Campus-Wide License, MATLAB and Simulink https://matlab.mathworks.com<p/>
     
-GNU Radio https://www.gnuradio.org
-On Ubuntu 24.04  
-    ```
-    sudo apt install gnuradio
+GNU Radio https://www.gnuradio.org<br/>
+On Ubuntu 24.04<br/>
+    sudo apt install gnuradio<br/>
     
-    gnuradio-companion
-    ```
+    gnuradio-companion<br/>
     
 <h2>More References</h2>
-    [https://repository.library.neu.edu/files/neu:m044c531h/fulltext.pdf](https://repository.library.neu.edu/files/neu:m044c531h/fulltext.pdf)
+    [https://repository.library.neu.edu/files/neu:m044c531h/fulltext.pdf](https://repository.library.neu.edu/files/neu:m044c531h/fulltext.pdf)<p/>
     
-    [https://ece.northeastern.edu/fac-ece/ioannidis/static/pdf/2018/radio_identification.pdf](https://ece.northeastern.edu/fac-ece/ioannidis/static/pdf/2018/radio_identification.pdf)
+    [https://ece.northeastern.edu/fac-ece/ioannidis/static/pdf/2018/radio_identification.pdf](https://ece.northeastern.edu/fac-ece/ioannidis/static/pdf/2018/radio_identification.pdf)<p/>
     
-    Improving security of the Internet of Things via RF fingerprinting based device identification system [https://link.springer.com/article/10.1007/s00521-021-06115-2](https://link.springer.com/article/10.1007/s00521-021-06115-2)
+    Improving security of the Internet of Things via RF fingerprinting based device identification system [https://link.springer.com/article/10.1007/s00521-021-06115-2](https://link.springer.com/article/10.1007/s00521-021-06115-2)<p/>
     
-    https://www.mathworks.com/help/lte/ref/ltewaveformgenerator-app.html?searchHighlight=lte%20impairment&s_tid=srchtitle_support_results_2_lte%20impairment
+    https://www.mathworks.com/help/lte/ref/ltewaveformgenerator-app.html?searchHighlight=lte%20impairment&s_tid=srchtitle_support_results_2_lte%20impairment<p/>
     
-    https://www.mathworks.com/company/technical-articles/measuring-the-impact-of-rf-impairments-on-an-lte-system.html?s_tid=srchtitle_support_results_1_lte%20impairment
+    https://www.mathworks.com/company/technical-articles/measuring-the-impact-of-rf-impairments-on-an-lte-system.html?s_tid=srchtitle_support_results_1_lte%20impairment<p/>
     
-    Performance Evaluation of LTE Radio Fingerprinting using Field Measurements [https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
+    Performance Evaluation of LTE Radio Fingerprinting using Field Measurements [https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)<p/>
     
-    LTE Device Identification Based on RF Fingerprint with Multi-Channel Convolutional Neural Network [https://ieeexplore.ieee.org/document/9685067](https://ieeexplore.ieee.org/document/9685067)
+    LTE Device Identification Based on RF Fingerprint with Multi-Channel Convolutional Neural Network [https://ieeexplore.ieee.org/document/9685067](https://ieeexplore.ieee.org/document/9685067)<p/>
     
-    Performance evaluation of LTE radio fingerprint positioning with timing advancing [https://ieeexplore.ieee.org/abstract/document/7459984](https://ieeexplore.ieee.org/abstract/document/7459984)
+    Performance evaluation of LTE radio fingerprint positioning with timing advancing [https://ieeexplore.ieee.org/abstract/document/7459984](https://ieeexplore.ieee.org/abstract/document/7459984)<p/>
     
-    Radio Frequency Fingerprints Extraction for LTE-V2X: A Channel Estimation Based Methodology [https://arxiv.org/pdf/2301.01446](https://arxiv.org/pdf/2301.01446)
+    Radio Frequency Fingerprints Extraction for LTE-V2X: A Channel Estimation Based Methodology [https://arxiv.org/pdf/2301.01446](https://arxiv.org/pdf/2301.01446)<p/>
     
-    RF fingerprinting for user locationing in LTE/WLAN networks [https://jyx.jyu.fi/handle/123456789/51204#](https://jyx.jyu.fi/handle/123456789/51204#)
+    RF fingerprinting for user locationing in LTE/WLAN networks [https://jyx.jyu.fi/handle/123456789/51204#](https://jyx.jyu.fi/handle/123456789/51204#)<p/>
     
-    Enhanced Device FingerPrinting in 4G LTE Communication Networks [http://drsr.daiict.ac.in/handle/123456789/1055](http://drsr.daiict.ac.in/handle/123456789/1055)
+    Enhanced Device FingerPrinting in 4G LTE Communication Networks [http://drsr.daiict.ac.in/handle/123456789/1055](http://drsr.daiict.ac.in/handle/123456789/1055)<p/>
     
 <h2>Documentation</h2>
-<a href="https://github.com/chrimson/MULLET/docs/CYSE640_BradChris_ProjectProposalPresentation.pdf">CYSE640_BradChris_ProjectProposalPresentation.pdf</a><br/>
+<a href="https://github.com/chrimson/MULLET/blob/main/docs/CYSE640_BradChris_ProjectProposalPresentation.pdf">CYSE640_BradChris_ProjectProposalPresentation.pdf</a><br/>
 <a href="https://github.com/chrimson/MULLET/blob/main/docs/CYSE640_BradChris_ProjectProposalReport.pdf">CYSE640_BradChris_ProjectProposalReport.pdf</a><p/>
 
 (below are placeholders for now)<br/>
-<a href="https://github.com/chrimson/MULLET/docs/CYSE640_BradChris_ProjectFinalPresentation.pdf">CYSE640_BradChris_ProjectFinalPresentation.pdf</a><br/>
-<a href="https://github.com/chrimson/MULLET/docs/CYSE640_BradChris_ProjectFinalReport.pdf">CYSE640_BradChris_ProjectFinalReport.pdf</a><p/>
+<a href="https://github.com/chrimson/MULLET/blob/main/docs/CYSE640_BradChris_ProjectFinalPresentation.pdf">CYSE640_BradChris_ProjectFinalPresentation.pdf</a><br/>
+<a href="https://github.com/chrimson/MULLET/blob/main/docs/CYSE640_BradChris_ProjectFinalReport.pdf">CYSE640_BradChris_ProjectFinalReport.pdf</a><p/>
 
 <h2>Notes</h2>
 <a href="archive.md">Archive</a><p/>
