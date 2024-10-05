@@ -1,4 +1,4 @@
-### MULLET
+### MULLET - ML LTE Fingerprinter
 [Web Page](https://chrimson.github.io/MULLET)
 
 ---
