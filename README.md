@@ -1,6 +1,5 @@
 ### MULLET
-
-### [Front Page](https://chrimson.github.io/MULLET)
+[Web Page](https://chrimson.github.io/MULLET)
 
 ---
 
