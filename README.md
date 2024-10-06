@@ -56,6 +56,8 @@ vncserver :1
 
 export XAUTHORITY=/home/ubuntu/.Xauthority
 
+matlab -nodisplay -nosplash -nodesktop -r "run('path/to/your/script.m');exit;"
+
 ### AWS
 
 ---
