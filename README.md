@@ -29,7 +29,7 @@ https://stackoverflow.com/questions/38723138/matlab-execute-script-from-linux-co
 NGINX
 
 apt install ubuntu-desktop tightvncserver  
-apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal xterm
+apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal xterm gcc
 
 vncserver :1  
 vim ~/.vnc/xstartup  
