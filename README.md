@@ -56,6 +56,12 @@ vncserver :1
 
 export XAUTHORITY=/home/ubuntu/.Xauthority
 
+
+/etc/ssh/sshd_config  
+ChallengeResponseAuthentication yes
+
+useradd -ms /bin/bash Chris
+
 matlab -nodisplay -nosplash -nodesktop -r "run('path/to/your/script.m');exit;"
 
 ### AWS
