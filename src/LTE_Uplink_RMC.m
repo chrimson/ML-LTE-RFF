@@ -41,16 +41,20 @@ waveform = waveform + 0.1+0.2i
 % AWGN
 waveform = awgn(waveform, 20, 'measured')
 
+fid = fopen('LTE_Upload_RMC_waveform_data.ascii', 'w')
+fprintf(fid, '%.4f + %.4fi\n', real(waveform), imag(waveform))
+fclose(fid)
+
 %% Visualize
 % Time Scope
-timeScope = timescope('SampleRate', Fs, ...
-    'TimeSpanOverrunAction', 'scroll', ...
-    'TimeSpanSource', 'property', ...
-    'TimeSpan', 9.7656e-07)
-timeScope(waveform)
-release(timeScope)
-
-% Spectrum Analyzer
-spectrum = spectrumAnalyzer('SampleRate', Fs)
-spectrum(waveform)
-release(spectrum)
+%timeScope = timescope('SampleRate', Fs, ...
+%    'TimeSpanOverrunAction', 'scroll', ...
+%    'TimeSpanSource', 'property', ...
+%    'TimeSpan', 9.7656e-07)
+%timeScope(waveform)
+%release(timeScope)
+%
+%% Spectrum Analyzer
+%spectrum = spectrumAnalyzer('SampleRate', Fs)
+%spectrum(waveform)
+%release(spectrum)
