@@ -39,8 +39,8 @@ for wf_iter = 1:num_wf
     B = rep*pi*rand/wf_len;
     C = rep*pi*rand/wf_len;
     D = rep*pi*rand/wf_len;
-    M = rand() * strength;
-    N = rand() * strength;
+    M = rand * strength;
+    N = rand * strength;
     
     m = strings(6, 1);
     for octet = 1:6
@@ -59,8 +59,8 @@ for wf_iter = 1:num_wf
         rff = 1 + ...
             (base+rand*dev)*M*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
             (base+rand*dev)*N*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
-        plot(t, rff);
-        hold on;
+%        plot(t, rff);
+%        hold on;
 
         wf = waveform .* rff';
 
