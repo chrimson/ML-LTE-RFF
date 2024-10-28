@@ -1,16 +1,16 @@
-strength = 0.1; % Amplitude effect (0.1)
-trunc = 5000; % Adjusted length of waveform for development
-dev = 0.05; % Deviation from fingerprint parameters (0.05 is +/-0.025)
-rep = 50; % Adjustable repetitive factor (10-80 looks good)
-
-num_wf = 4;
-num_dev = 4;
-
+%% Configuration Tool
+fprintf('Configure tool\n');
+strength = 0.1 % Amplitude effect (0.1)
+trunc = 5000 % Adjusted length of waveform for development
+dev = 0.05 % Deviation from fingerprint parameters (0.05 is +/-0.025)
+rep = 50 % Adjustable repetitive factor (10-80 looks good)
+num_wf = 4
+num_dev = 4
 rng(61223) % Random generator seed
-
 
 %% Generating LTE Compliant Uplink RMC waveform
 % Configuration
+fprintf('Configure LTE Uplink RMC\n');
 cfg = struct('RC', 'A1-1', ...
     'NULRB', 100, ...
     'DuplexMode', 'FDD', ...
@@ -25,6 +25,7 @@ cfg = lteRMCUL(cfg);
 in = [1; 0; 0; 1];
 
 % Generation
+fprintf('Generation\n');
 [waveform, grid, cfg] = lteRMCULTool(cfg, in);
 waveform = waveform(1:trunc);
 wf_len = length(waveform);
@@ -50,13 +51,16 @@ for wf_iter = 1:num_wf
     if ~exist(mac, 'dir')
         mkdir(mac);
     end
+
+    fprintf('\n%d Waveform and RFF %s\n', wf_iter, mac);
     
-    for deviations = 1:num_dev
+    for deviation = 1:num_dev
+        fprintf('Deviation %d\n', deviation);
         rff = 1 + ...
             (base+rand*dev)*M*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
             (base+rand*dev)*N*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
-        plot(t, rff);
-        hold on;
+%        plot(t, rff);
+%        hold on;
 
         wf = waveform .* rff';
 
@@ -99,3 +103,5 @@ spectrum = spectrumAnalyzer('SampleRate', Fs);
 spectrum(waveform);
 release(spectrum);
 %}
+
+fprintf('\nDone\n');
