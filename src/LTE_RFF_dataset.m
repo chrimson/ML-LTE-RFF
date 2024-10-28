@@ -80,7 +80,8 @@ for wf_iter = 1:num_wf
             fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, M, N));
         end
         fid = fopen(sprintf('%s/%04d', mac, max+1), 'w');
-        fprintf(fid, '%.4f + %.4fi\n', [real(wf(:)), imag(wf(:))].');
+%        fprintf(fid, '%.4f + %.4fi\n', [real(wf(:)), imag(wf(:))].');
+        fprintf(fid, '%.4f\n', rff');
         fclose(fid);
 
     end
