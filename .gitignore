@@ -1,2 +1,5 @@
 *.swp
 *.ascii
+*.keras
+src/keys.txt
+src/ue_rff_data/
