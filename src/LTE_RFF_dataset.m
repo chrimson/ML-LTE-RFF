@@ -4,9 +4,10 @@ strength = 0.1 % Amplitude effect (0.1)
 trunc = 5000 % Adjusted length of waveform for development (5000 for now)
 dev = 0.05 % Deviation from fingerprint parameters (0.05 is +/-0.025)
 rep = 50 % Adjustable repetitive factor (10-80 looks good)
-num_wf = 4
-num_dev = 4
+num_wf = 50
+num_dev = 50
 rng(61223) % Random generator seed
+data = 'ue_rff_data'
 
 %% Generating LTE Compliant Uplink RMC waveform
 % Configuration
@@ -31,6 +32,9 @@ waveform = waveform(1:trunc);
 wf_len = length(waveform);
 t = 1 : wf_len;
 
+if ~exist(data, 'dir')
+    mkdir(data);
+end
 
 %% RF Fingerprint
 base = 1 - dev / 2;
@@ -48,8 +52,9 @@ for wf_iter = 1:num_wf
         m(octet) = dec2hex(octet_val, 2);
     end
     mac = sprintf('%s-%s-%s-%s-%s-%s', m);
-    if ~exist(mac, 'dir')
-        mkdir(mac);
+    mac_path = sprintf('%s/%s', data, mac);
+    if ~exist(mac_path, 'dir')
+        mkdir(mac_path);
     end
 
     fprintf('\n%d Waveform and RFF %s\n', wf_iter, mac);
@@ -62,10 +67,10 @@ for wf_iter = 1:num_wf
 %        plot(t, rff);
 %        hold on;
 
-        wf = waveform .* rff';
+%        wf = waveform .* rff';
 
         max=-1;
-        list = dir(mac);
+        list = dir(mac_path);
         for i = 1:length(list)
             names = {list.name};
             num = str2double(cell2mat(names(i)));
@@ -79,7 +84,7 @@ for wf_iter = 1:num_wf
             fid = fopen('keys.txt', 'a+');
             fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, M, N));
         end
-        fid = fopen(sprintf('%s/%04d', mac, max+1), 'w');
+        fid = fopen(sprintf('%s/%04d', mac_path, max+1), 'w');
 %        fprintf(fid, '%.4f + %.4fi\n', [real(wf(:)), imag(wf(:))].');
         fprintf(fid, '%.4f\n', rff');
         fclose(fid);
