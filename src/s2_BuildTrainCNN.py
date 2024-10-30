@@ -8,6 +8,7 @@ from keras.models import Sequential
 from keras.layers import Conv1D, Flatten, MaxPooling1D, Dense
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import shuffle
+import joblib
 import numpy as np
 print("TensorFlow", tf.__version__)
 
@@ -37,6 +38,7 @@ MACs = np.array(macs)
 print('Label encoding')
 le = LabelEncoder()
 MACs = le.fit_transform(MACs)
+joblib.dump(le, "mac_label_enc.pkl")
 # print(f'{MACs} {len(MACs)}\n')
 
 print('Shuffle arrays')

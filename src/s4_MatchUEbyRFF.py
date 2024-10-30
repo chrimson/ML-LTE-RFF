@@ -6,27 +6,12 @@ warnings.filterwarnings("ignore")
 import tensorflow as tf 
 from keras.models import load_model
 from sklearn.preprocessing import LabelEncoder
+import joblib
 import numpy as np
 print("TensorFlow", tf.__version__)
 
-data_dir = 'ue_rff_data'
 rff_file = 'target_rff.asc'
-macs = []
-
-print('Build list of MAC IDs from dataset')
-dir_list = os.listdir(data_dir)
-for mac_id in dir_list:
-  macs.append(mac_id)
-# print(f"{macs} {len(macs)}\n")
-
-print('Convert list of MAC IDs to NumPy array')
-MACs = np.array(macs)
-# print(f'{MACs} {len(MACs)}\n')
-
-print('Label encoding')
-le = LabelEncoder()
-MACs = le.fit_transform(MACs)
-#print(f'{MACs} {len(MACs)}\n')
+le = joblib.load("mac_label_enc.pkl")
 
 print('Load RFF CNN')
 model = load_model('rff_cnn.keras')

@@ -16,10 +16,6 @@ Numbered scripts may be used to invoke steps
 
 ## To Do
 
-import joblib  
-joblib.dump(le, "label_encoder.pkl")  
-le = joblib.load("label_encoder.pkl")
-
 Base neural network on full waveform and RFF
 
 Refrain from truncating

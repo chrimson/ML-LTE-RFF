@@ -1,4 +1,5 @@
-*.swp
 *.asc
 *.keras
+*.pkl
+*.swp
 src/ue_rff_data/
