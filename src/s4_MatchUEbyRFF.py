@@ -8,8 +8,10 @@ from keras.models import load_model
 from sklearn.preprocessing import LabelEncoder
 import joblib
 import numpy as np
+import re
 print("TensorFlow", tf.__version__)
 
+norm = 40
 rff_file = 'target_rff.asc'
 le = joblib.load("mac_label_enc.pkl")
 
@@ -20,11 +22,13 @@ print('Build one target RFF from file')
 rff = []
 with open(rff_file) as file:
   for line in file:
-    rff.append(float(line.rstrip()))
+    cpx = re.sub('[+ij]', '', line).split()
+    rff.append([float(cpx[0]), float(cpx[1])])
 # print(f"{rff} {len(rff)}\n")
 
 print('Convert list of target RFF to NumPy array')
-RFF = np.array([rff]) / 1.1555
+# Move zero-centric to [0,1] normalization
+RFF = np.array([rff]) * norm + 0.5
 # print(f'{RFF} {len(RFF)}\n')
 
 print('Predict target')

@@ -1,9 +1,9 @@
 %% Configure Tool
 fprintf('Configure tool\n');
-strength = 0.1 % Amplitude effect (0.1)
+strength = 0.25 % Amplitude effect (0.1)
 trunc = 5000 % Adjusted length of waveform for development (5000 for now)
 dev = 0.05 % Deviation from fingerprint parameters (0.05 is +/-0.025)
-rep = 50 % Adjustable repetitive factor (10-80 looks good)
+rep = 10 % Adjustable repetitive factor (10-80 looks good)
 num_wf = 50
 num_dev = 50
 rng(61223) % Random generator seed
@@ -57,7 +57,7 @@ for wf_iter = 1:num_wf
         mkdir(mac_path);
     end
 
-    fprintf('\n%d Waveform and RFF %s\n', wf_iter, mac);
+    fprintf('\nWaveform %d, RFF %s\n', wf_iter, mac);
     
     for deviation = 1:num_dev
         fprintf('Deviation %d\n', deviation);
@@ -85,8 +85,9 @@ for wf_iter = 1:num_wf
             fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, J, K));
         end
         fid = fopen(sprintf('%s/%04d', mac_path, max+1), 'w');
-%        fprintf(fid, '%.4f + %.4fi\n', [real(wf(:)), imag(wf(:))].');
-        fprintf(fid, '%.4f\n', rff');
+%        fprintf(fid, '%.4f + %.4fi\n', [real(waveform(:)), imag(waveform(:))].');
+%        fprintf(fid, '%.4f\n', rff');
+        fprintf(fid, '%.4f + %.4fj\n', [real(wf(:)), imag(wf(:))].');
         fclose(fid);
 
     end
