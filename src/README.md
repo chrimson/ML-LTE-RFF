@@ -16,6 +16,8 @@ Numbered scripts may be used to invoke steps
 
 ## To Do
 
+Update and retrain model
+
 Refrain from truncating
 
 Restore applicable impairments

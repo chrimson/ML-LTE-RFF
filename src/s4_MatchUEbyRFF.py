@@ -33,5 +33,7 @@ RFF = np.array([rff]) * norm + 0.5
 
 print('Predict target')
 predicted = model.predict(RFF)
-predicted_label = le.inverse_transform(np.argmax(predicted, axis=1))
-print(f'{predicted_label}\n')
+pred = np.argmax(predicted, axis=1)
+predicted_label = le.inverse_transform(pred)[0]
+prob = predicted[0][pred[0]]
+print(f'{predicted_label} {prob}\n')
