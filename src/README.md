@@ -16,6 +16,10 @@ Numbered scripts may be used to invoke steps
 
 ## To Do
 
+Outputs of steps
+
+Capture MATLAB graphs
+
 Update and retrain model
 
 Refrain from truncating
@@ -26,4 +30,4 @@ Restore applicable impairments
 
 Assumes every UE has the same base RMC with no deviation
 
-LTE_Uplinj_RMC.m is for reference only
+LTE_Uplink_RMC.m is for reference only
