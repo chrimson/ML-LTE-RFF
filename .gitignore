@@ -1,6 +1,4 @@
 *.swp
-*.ascii
+*.asc
 *.keras
-src/keys.txt
 src/ue_rff_data/
-src/target

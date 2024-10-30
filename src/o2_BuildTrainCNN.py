@@ -61,6 +61,6 @@ model.add(Dense(units=54, activation='softmax'))
 print('Compile, train, save')
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
 history = model.fit(RFFsh, MACsh, validation_split=0.2, batch_size=16, epochs=10)
-model.save('rff.keras')
+model.save('rff_cnn.keras')
 
 print('Done')

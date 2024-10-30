@@ -47,7 +47,7 @@ waveform = awgn(waveform, 20, 'measured');
 %% Output
 
 fprintf('Exporting\n');
-fid = fopen('LTE__Uplink_RMC_waveform.ascii', 'w');
+fid = fopen('LTE__Uplink_RMC_waveform.asc', 'w');
 fprintf(fid, '%.4f + %.4fi\n', [real(waveform(:)), imag(waveform(:))].');
 fclose(fid);
 

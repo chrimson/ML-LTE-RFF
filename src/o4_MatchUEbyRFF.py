@@ -10,7 +10,7 @@ import numpy as np
 print("TensorFlow", tf.__version__)
 
 data_dir = 'ue_rff_data'
-rff_file = 'target'
+rff_file = 'target_rff.asc'
 macs = []
 
 print('Build list of MAC IDs from dataset')
@@ -29,7 +29,7 @@ MACs = le.fit_transform(MACs)
 #print(f'{MACs} {len(MACs)}\n')
 
 print('Load RFF CNN')
-model = load_model('rff.keras')
+model = load_model('rff_cnn.keras')
 
 print('Build one target RFF from file')
 rff = []
