@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 o4_MatchUEbyRFF.py
+python3 s4_MatchUEbyRFF.py

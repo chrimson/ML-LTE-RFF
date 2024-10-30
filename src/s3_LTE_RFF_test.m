@@ -30,7 +30,7 @@ wf_len = length(waveform);
 t = 1 : wf_len;
 
 %% RF Fingerprint
-% Choose a set of parameters from ue_rff parms.asc
+% Choose a set of parameters from ue_rff_parms.asc
 A = 7.392780e-03
 B = 4.779907e-03
 C = 3.828342e-03

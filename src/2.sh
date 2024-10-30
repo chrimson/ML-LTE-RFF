@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 o2_BuildTrainCNN.py
+python3 s2_BuildTrainCNN.py
