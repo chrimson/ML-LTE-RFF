@@ -24,11 +24,11 @@ in = [1; 0; 0; 1];
 fprintf('Generation\n');
 [waveform, grid, cfg] = lteRMCULTool(cfg, in);
 waveform = waveform(1:trunc);
-wf_len = length(waveform);
-t = 1 : wf_len;
+rwf_len = length(waveform);
+t = 1 : rwf_len;
 
 %% RF Fingerprint
-% Choose a set of parameters from ue_rff_parms.asc
+% Choose a set of parameters from ue_rwf_parms.asc
 A = 1.478556e-03
 B = 9.559815e-04
 C = 7.656685e-04
@@ -41,11 +41,11 @@ rff = 1 + ...
     (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
     (base+rand*dev)*K*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
 
-wf = waveform .* rff';
+rwf = waveform .* rff';
 
-fid = fopen('target_rff.asc', 'w');
+fid = fopen('target_rwf.asc', 'w');
 % fprintf(fid, '%.4f\n', rff');
-fprintf(fid, '%.4f + %.4fj\n', [real(wf(:)), imag(wf(:))].');
+fprintf(fid, '%.4f + %.4fj\n', [real(rwf(:)), imag(rwf(:))].');
 fclose(fid);
 
 fprintf('\nDone\n');

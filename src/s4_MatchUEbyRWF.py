@@ -12,27 +12,27 @@ import re
 print("TensorFlow", tf.__version__)
 
 norm = 40
-rff_file = 'target_rff.asc'
+rwf_file = 'target_rwf.asc'
 le = joblib.load("mac_label_enc.pkl")
 
-print('Load RFF CNN')
-model = load_model('rff_cnn.keras')
+print('Load RWF CNN')
+model = load_model('rwf_cnn.keras')
 
-print('Build one target RFF from file')
-rff = []
-with open(rff_file) as file:
+print('Build one target RWF from file')
+rwf = []
+with open(rwf_file) as file:
   for line in file:
     cpx = re.sub('[+ij]', '', line).split()
-    rff.append([float(cpx[0]), float(cpx[1])])
-# print(f"{rff} {len(rff)}\n")
+    rwf.append([float(cpx[0]), float(cpx[1])])
+# print(f"{rwf} {len(rwf)}\n")
 
-print('Convert list of target RFF to NumPy array')
+print('Convert list of target RWF to NumPy array')
 # Move zero-centric to [0,1] normalization
-RFF = np.array([rff]) * norm + 0.5
-# print(f'{RFF} {len(RFF)}\n')
+RWF = np.array([rwf]) * norm + 0.5
+# print(f'{RWF} {len(RWF)}\n')
 
 print('Predict target')
-predicted = model.predict(RFF)
+predicted = model.predict(RWF)
 pred = np.argmax(predicted, axis=1)
 predicted_label = le.inverse_transform(pred)[0]
 prob = predicted[0][pred[0]]

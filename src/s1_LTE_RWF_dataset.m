@@ -1,13 +1,13 @@
 %% Configure Tool
 fprintf('Configure tool\n');
-strength = 0.25 % Amplitude effect (0.1)
-trunc = 5000 % Adjusted length of waveform for development (5000 for now)
-dev = 0.05 % Deviation from fingerprint parameters (0.05 is +/-0.025)
-rep = 10 % Adjustable repetitive factor (10-80 looks good)
-num_wf = 50
-num_dev = 50
-rng(61223) % Random generator seed
-data = 'ue_rff_data'
+strength = 0.25          % Amplitude effect (0.25)
+rep      = 10            % Adjustable repetitive factor (10-80 looks good)
+trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
+dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
+num_rwf  = 50            % Number of RFF Waveforms
+num_var  = 50            % Number of Variants for each RFF Waveform
+data     = 'ue_rwf_data' % Dataset directory
+rng(61223)               % Random generator seed
 
 %% Generating LTE Compliant Uplink RMC waveform
 % Configuration
@@ -29,20 +29,22 @@ in = [1; 0; 0; 1];
 fprintf('Generation\n');
 [waveform, grid, cfg] = lteRMCULTool(cfg, in);
 waveform = waveform(1:trunc);
-wf_len = length(waveform);
-t = 1 : wf_len;
+rwf_len = length(waveform);
+t = 1 : rwf_len;
 
 if ~exist(data, 'dir')
     mkdir(data);
 end
 
-%% RF Fingerprint
+%% RFF Waveforms (RWF)
+% So the deviation (limited by dev=0.05) multiplicative factor would be
+% between 0.95 and 1.05
 base = 1 - dev / 2;
-for wf_iter = 1:num_wf
-    A = rep*pi*rand/wf_len;
-    B = rep*pi*rand/wf_len;
-    C = rep*pi*rand/wf_len;
-    D = rep*pi*rand/wf_len;
+for rwf_iter = 1:num_rwf
+    A = rep*pi*rand/rwf_len;
+    B = rep*pi*rand/rwf_len;
+    C = rep*pi*rand/rwf_len;
+    D = rep*pi*rand/rwf_len;
     J = rand * strength;
     K = rand * strength;
     
@@ -57,17 +59,16 @@ for wf_iter = 1:num_wf
         mkdir(mac_path);
     end
 
-    fprintf('\nWaveform %d, RFF %s\n', wf_iter, mac);
-    
-    for deviation = 1:num_dev
-        fprintf('Deviation %d\n', deviation);
+    fprintf('\nRFF Waveform %d, MAC %s\n', rwf_iter, mac);
+    for variant = 1:num_var
+        fprintf('Variant %d\n', variant);
         rff = 1 + ...
             (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
             (base+rand*dev)*K*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
 %        plot(t, rff);
 %        hold on;
 
-        wf = waveform .* rff';
+        rwf = waveform .* rff';
 
         max=-1;
         list = dir(mac_path);
@@ -81,13 +82,13 @@ for wf_iter = 1:num_wf
             end
         end
         if max+1 == 0
-            fid = fopen('ue_rff_parms.asc', 'a+');
+            fid = fopen('ue_rwf_parms.asc', 'a+');
             fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, J, K));
         end
         fid = fopen(sprintf('%s/%04d', mac_path, max+1), 'w');
 %        fprintf(fid, '%.4f + %.4fi\n', [real(waveform(:)), imag(waveform(:))].');
 %        fprintf(fid, '%.4f\n', rff');
-        fprintf(fid, '%.4f + %.4fj\n', [real(wf(:)), imag(wf(:))].');
+        fprintf(fid, '%.4f + %.4fj\n', [real(rwf(:)), imag(rwf(:))].');
         fclose(fid);
 
     end
@@ -114,17 +115,17 @@ release(spectrum);
 
 
 % Time Scope
-timeScope_rff = timescope('SampleRate', Fs, ...
+timeScope_rwf = timescope('SampleRate', Fs, ...
     'TimeSpanOverrunAction', 'scroll', ...
     'TimeSpanSource', 'property', ...
     'TimeSpan', 9.7656e-07);
-timeScope_rff(wf);
-release(timeScope_rff);
+timeScope_rwf(rwf);
+release(timeScope_rwf);
 
 % Spectrum Analyzer
-spectrum_rff = spectrumAnalyzer('SampleRate', Fs);
-spectrum_rff(wf);
-release(spectrum_rff);
+spectrum_rwf = spectrumAnalyzer('SampleRate', Fs);
+spectrum_rwf(rwf);
+release(spectrum_rwf);
 %}
 
 fprintf('\nDone\n');

@@ -1,2 +1,2 @@
 #!/bin/bash
-matlab -nodisplay -nodesktop -nosplash -r "run('s1_LTE_RFF_dataset.m');exit;"
+matlab -nodisplay -nodesktop -nosplash -r "run('s1_LTE_RWF_dataset.m');exit;"
