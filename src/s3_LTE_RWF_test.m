@@ -29,13 +29,15 @@ t = 1 : rwf_len;
 
 %% RF Fingerprint
 % Choose a set of parameters from ue_rwf_parms.asc
-A = 1.478556e-03
-B = 9.559815e-04
-C = 7.656685e-04
-D = 5.435408e-03
+A = 7.392780e-03
+B = 4.779907e-03
+C = 3.828342e-03
+D = 2.717704e-02
 J = 7.729217e-03
 K = 1.586164e-01
 
+% So the deviation (limited by dev=0.05) multiplicative factor would be
+% between 0.95 and 1.05
 base = 1 - dev / 2;
 rff = 1 + ...
     (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...

@@ -1,7 +1,7 @@
 %% Configure Tool
 fprintf('Configure tool\n');
 strength = 0.25          % Amplitude effect (0.25)
-rep      = 10            % Adjustable repetitive factor (10-80 looks good)
+rep      = 50            % Adjustable repetitive factor (10-80 looks good)
 trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
 dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
 num_rwf  = 50            % Number of RFF Waveforms
@@ -25,13 +25,6 @@ cfg = lteRMCUL(cfg);
 % Input bit source:
 in = [1; 0; 0; 1];
 
-% Generation
-fprintf('Generation\n');
-[waveform, grid, cfg] = lteRMCULTool(cfg, in);
-waveform = waveform(1:trunc);
-rwf_len = length(waveform);
-t = 1 : rwf_len;
-
 if ~exist(data, 'dir')
     mkdir(data);
 end
@@ -40,11 +33,12 @@ end
 % So the deviation (limited by dev=0.05) multiplicative factor would be
 % between 0.95 and 1.05
 base = 1 - dev / 2;
+t = 1 : trunc;
 for rwf_iter = 1:num_rwf
-    A = rep*pi*rand/rwf_len;
-    B = rep*pi*rand/rwf_len;
-    C = rep*pi*rand/rwf_len;
-    D = rep*pi*rand/rwf_len;
+    A = rep*pi*rand/trunc;
+    B = rep*pi*rand/trunc;
+    C = rep*pi*rand/trunc;
+    D = rep*pi*rand/trunc;
     J = rand * strength;
     K = rand * strength;
     
@@ -67,6 +61,9 @@ for rwf_iter = 1:num_rwf
             (base+rand*dev)*K*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
 %        plot(t, rff);
 %        hold on;
+
+        [waveform, grid, cfg] = lteRMCULTool(cfg, in);
+        waveform = waveform(1:trunc);
 
         rwf = waveform .* rff';
 
