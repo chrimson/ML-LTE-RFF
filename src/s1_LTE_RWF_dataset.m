@@ -1,11 +1,11 @@
 %% Configure Tool
 fprintf('Configure tool\n');
-strength = 0.25          % Amplitude effect (0.25)
-rep      = 50            % Adjustable repetitive factor (10-80 looks good)
+strength = 0.2           % Amplitude effect (0.25)
+rep      = 30            % Adjustable repetitive factor (10-80 looks good)
 trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
 dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
-num_rwf  = 50            % Number of RFF Waveforms
-num_var  = 50            % Number of Variants for each RFF Waveform
+num_rwf  = 50            % Number of RFF Waveforms (RWF)
+num_var  = 50            % Number of Variants for each RWF
 data     = 'ue_rwf_data' % Dataset directory
 rng(61223)               % Random generator seed
 
@@ -60,8 +60,7 @@ for rwf_iter = 1:num_rwf
             (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
             (base+rand*dev)*K*cos((base+rand*dev)*C*t + (base+rand*dev)*D);
 %        plot(t, rff);
-%        title('All RFFs without waveforms');
-%        legend();
+%        title('RFFs without Waveforms');
 %        hold on;
 
         [waveform, grid, cfg] = lteRMCULTool(cfg, in);
@@ -124,7 +123,6 @@ timeScope_rwf = timescope('Title', 'Last waveform with RFF', ...
     'TimeSpanOverrunAction', 'scroll', ...
     'TimeSpanSource', 'property', ...
     'TimeSpan', 9.7656e-07);
-title('Waveform with RFF')
 timeScope_rwf(rwf);
 release(timeScope_rwf);
 

@@ -21,9 +21,11 @@ macs = []
 print('Build lists of RWFs and their MAC IDs from dataset')
 dir_list = os.listdir(data_dir)
 for mac_id in dir_list:
+  print(mac_id)
   mac_dir = os.path.join(data_dir, mac_id)
   file_list = os.listdir(mac_dir)
   for rwf_file in file_list:
+    print(rwf_file)
     rwf = []
     with open(os.path.join(data_dir, mac_id, rwf_file)) as file:
       for line in file:
