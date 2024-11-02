@@ -29,12 +29,12 @@ t = 1 : rwf_len;
 
 %% RF Fingerprint
 % Choose a set of parameters from ue_rwf_parms.asc
-A = 1.542570e-02
-B = 1.756894e-02
-C = 6.768693e-03
-D = 1.598489e-02
-J = 1.873912e-01
-K = 6.119906e-02
+A = 7.712849e-03
+B = 8.784469e-03
+C = 3.384347e-03
+D = 7.992447e-03
+J = 2.810868e-01
+K = 9.179859e-02
 
 % So the deviation (limited by dev=0.05) multiplicative factor would be
 % between 0.95 and 1.05

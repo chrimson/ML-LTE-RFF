@@ -13,30 +13,40 @@ import numpy as np
 import re
 print("TensorFlow", tf.__version__)
 
-norm = 40
+norm_file = 'rwf_cnn_norm.asc'
+cnn_file = 'rwf_cnn.keras'
 data_dir = 'ue_rwf_data'
 rwfs = []
 macs = []
 
 print('Build lists of RWFs and their MAC IDs from dataset')
 dir_list = os.listdir(data_dir)
+# Keep largest magnitude for normalization
+mag = 0
 for mac_id in dir_list:
-  print(mac_id)
+  print(f'{mac_id}')
   mac_dir = os.path.join(data_dir, mac_id)
   file_list = os.listdir(mac_dir)
   for rwf_file in file_list:
-    print(rwf_file)
+    print(rwf_file, end=' ')
     rwf = []
     with open(os.path.join(data_dir, mac_id, rwf_file)) as file:
       for line in file:
         cpx = re.sub('[+ij]', '', line).split()
-        rwf.append([float(cpx[0]), float(cpx[1])])
+        real = float(cpx[0])
+        imag = float(cpx[1])
+        mag = max(abs(real), abs(imag), mag)
+        rwf.append([real, imag])
     rwfs.append(rwf)
     macs.append(mac_id)
+  print()
 # print(f"{macs} {len(macs)}\n")
 
 print('Convert lists to NumPy arrays')
 # Move zero-centric to [0,1] normalization
+norm = 0.5 / mag
+with open(norm_file, 'w') as file:
+  file.write(str(norm))
 RWFs = np.array(rwfs) * norm + 0.5
 MACs = np.array(macs)
 # print(f'{RWFs} {len(RWFs)}\n')
@@ -65,6 +75,6 @@ model.add(Dense(units=54, activation='softmax'))
 print('Compile, train, save')
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
 history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=10)
-model.save('rwf_cnn.keras')
+model.save(cnn_file)
 
 print('Done')

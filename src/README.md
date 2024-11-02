@@ -16,6 +16,7 @@ __s2_BuildTrainCNN.py__ RWFs are applied to build the Convolutional Neural Netwo
 
 &nbsp;&nbsp;&nbsp;&nbsp;Outputs  
 &nbsp;&nbsp;&nbsp;&nbsp;*rwf_cnn.keras* CNN built from the RWF dataset by Keras API for TensorFlow  
+&nbsp;&nbsp;&nbsp;&nbsp;*rwf_cnn_norm.asc* Normalization factor of CNN  
 &nbsp;&nbsp;&nbsp;&nbsp;*mac_label_enc.pkl* MAC labels encoded to numerical representation needed by the CNN
 
 &nbsp;

@@ -11,12 +11,13 @@ import numpy as np
 import re
 print("TensorFlow", tf.__version__)
 
-norm = 40
+norm_file = 'rwf_cnn_norm.asc'
+cnn_file = 'rwf_cnn.keras'
 rwf_file = 'target_rwf.asc'
 le = joblib.load("mac_label_enc.pkl")
 
 print('Load RWF CNN')
-model = load_model('rwf_cnn.keras')
+model = load_model(cnn_file)
 
 print('Build one target RWF from file')
 rwf = []
@@ -28,6 +29,8 @@ with open(rwf_file) as file:
 
 print('Convert list of target RWF to NumPy array')
 # Move zero-centric to [0,1] normalization
+with open(norm_file) as file:
+  norm = float(file.read())
 RWF = np.array([rwf]) * norm + 0.5
 # print(f'{RWF} {len(RWF)}\n')
 

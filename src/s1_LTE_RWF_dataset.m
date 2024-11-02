@@ -1,7 +1,7 @@
 %% Configure Tool
 fprintf('Configure tool\n');
-strength = 0.2           % Amplitude effect (0.25)
-rep      = 30            % Adjustable repetitive factor (10-80 looks good)
+strength = 0.30           % Amplitude effect (0.25)
+rep      = 15            % Adjustable repetitive factor (10-80 looks good)
 trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
 dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
 num_rwf  = 50            % Number of RFF Waveforms (RWF)
