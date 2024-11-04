@@ -11,7 +11,7 @@ from sklearn.utils import shuffle
 import joblib
 import numpy as np
 import re
-print("TensorFlow", tf.__version__)
+print("TensorFlow", tf.__version__, flush=True)
 
 norm_file = 'rwf_cnn_norm.asc'
 cnn_file = 'rwf_cnn.keras'
@@ -19,16 +19,16 @@ data_dir = 'ue_rwf_data'
 rwfs = []
 macs = []
 
-print('Build lists of RWFs and their MAC IDs from dataset')
+print('Build lists of RWFs and their MAC IDs from dataset', flush=True)
 dir_list = os.listdir(data_dir)
 # Keep largest magnitude for normalization
 mag = 0
 for mac_id in dir_list:
-  print(f'{mac_id}')
+  print(f'{mac_id}', flush=True)
   mac_dir = os.path.join(data_dir, mac_id)
   file_list = os.listdir(mac_dir)
   for rwf_file in file_list:
-    print(rwf_file, end=' ')
+    print(rwf_file, end=' ', flush=True)
     rwf = []
     with open(os.path.join(data_dir, mac_id, rwf_file)) as file:
       for line in file:
@@ -39,10 +39,10 @@ for mac_id in dir_list:
         rwf.append([real, imag])
     rwfs.append(rwf)
     macs.append(mac_id)
-  print()
+  print(flush=True)
 # print(f"{macs} {len(macs)}\n")
 
-print('Convert lists to NumPy arrays')
+print('Convert lists to NumPy arrays', flush=True)
 # Move zero-centric to [0,1] normalization
 norm = 0.5 / mag
 with open(norm_file, 'w') as file:
@@ -51,17 +51,17 @@ RWFs = np.array(rwfs) * norm + 0.5
 MACs = np.array(macs)
 # print(f'{RWFs} {len(RWFs)}\n')
 
-print('Label encoding')
+print('Label encoding', flush=True)
 le = LabelEncoder()
 MACs = le.fit_transform(MACs)
 joblib.dump(le, "mac_label_enc.pkl")
 # print(f'{MACs} {len(MACs)}\n')
 
-print('Shuffle arrays')
+print('Shuffle arrays', flush=True)
 RWFsh, MACsh = shuffle(RWFs, MACs, random_state=42)
 # print(f'{MACsh} {len(MACsh)}\n')
 
-print('Build CNN model')
+print('Build CNN model', flush=True)
 model = Sequential()
 model.add(Conv2D(filters=64, kernel_size=1, activation='relu', input_shape=(5000,2,1)))
 model.add(MaxPooling2D())
@@ -72,9 +72,9 @@ model.add(Dense(units=64, activation='relu'))
 model.add(Dense(units=54, activation='softmax'))
 #print(f'{model.get_config()}\n')
 
-print('Compile, train, save')
+print('Compile, train, save', flush=True)
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
 history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=10)
 model.save(cnn_file)
 
-print('Done')
+print('Done', flush=True)
