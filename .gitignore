@@ -1,3 +1,4 @@
+*.log
 *.asc
 *.keras
 *.pkl
