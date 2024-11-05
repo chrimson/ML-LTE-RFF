@@ -1,15 +1,13 @@
 %% Configure Tool
-function [] = s1_LTE_RWF_dataset(repetition, strength)
+function [] = s1_LTE_RWF_dataset(rep, str)
 
     fprintf('Configure tool\n');
-    str      = strength      % Amplitude effect (25) percent
-    rep      = repetition    % Adjustable repetitive factor (10-80 looks good)
     trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
     dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
     num_rwf  = 50            % Number of RFF Waveforms (RWF)
     num_var  = 50            % Number of Variants for each RWF
 
-    data = sprintf('ue_rwf_data_%dx%d', rep, str)  % Dataset directory
+    data = sprintf('%dx%d_ue_rwf_data', rep, str)  % Dataset directory
     rng(61223)               % Random generator seed
 
     %% Generating LTE Compliant Uplink RMC waveform
@@ -83,7 +81,7 @@ function [] = s1_LTE_RWF_dataset(repetition, strength)
                 end
             end
             if max+1 == 0
-                fid = fopen(sprintf('ue_rwf_parm_%dx%d.asc', rep, str), 'a+');
+                fid = fopen(sprintf('%dx%d_ue_rwf_parm.asc', rep, str), 'a+');
                 fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, J, K));
             end
             fid = fopen(sprintf('%s/%04d', mac_path, max+1), 'w');

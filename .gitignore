@@ -2,4 +2,4 @@
 *.keras
 *.pkl
 *.swp
-ue_rwf_data*
+*ue_rwf_data

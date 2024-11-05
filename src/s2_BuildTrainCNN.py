@@ -11,11 +11,17 @@ from sklearn.utils import shuffle
 import joblib
 import numpy as np
 import re
+import sys
+
 print("TensorFlow", tf.__version__, flush=True)
 
-norm_file = 'rwf_cnn_norm.asc'
-cnn_file = 'rwf_cnn.keras'
-data_dir = 'ue_rwf_data'
+rep = sys.argv[1]
+stg = sys.argv[2]
+
+norm_file = f'{rep}x{stg}_rwf_cnn_norm.asc'
+cnn_file = f'{rep}x{stg}_rwf_cnn.keras'
+data_dir = f'{rep}x{stg}_ue_rwf_data'
+trunc = 5000
 rwfs = []
 macs = []
 
@@ -54,7 +60,7 @@ MACs = np.array(macs)
 print('Label encoding', flush=True)
 le = LabelEncoder()
 MACs = le.fit_transform(MACs)
-joblib.dump(le, "mac_label_enc.pkl")
+joblib.dump(le, f'{rep}x{stg}_mac_label_enc.pkl')
 # print(f'{MACs} {len(MACs)}\n')
 
 print('Shuffle arrays', flush=True)
@@ -63,7 +69,7 @@ RWFsh, MACsh = shuffle(RWFs, MACs, random_state=42)
 
 print('Build CNN model', flush=True)
 model = Sequential()
-model.add(Conv2D(filters=64, kernel_size=1, activation='relu', input_shape=(5000,2,1)))
+model.add(Conv2D(filters=64, kernel_size=1, activation='relu', input_shape=(trunc,2,1)))
 model.add(MaxPooling2D())
 model.add(Conv2D(filters=128, kernel_size=1, activation='relu'))
 model.add(Flatten())

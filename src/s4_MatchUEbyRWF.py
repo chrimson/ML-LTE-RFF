@@ -9,12 +9,17 @@ from sklearn.preprocessing import LabelEncoder
 import joblib
 import numpy as np
 import re
+import sys
+
 print("TensorFlow", tf.__version__, flush=True)
 
-norm_file = 'rwf_cnn_norm.asc'
-cnn_file = 'rwf_cnn.keras'
-rwf_file = 'target_rwf.asc'
-le = joblib.load("mac_label_enc.pkl")
+rep = sys.argv[1]
+stg = sys.argv[2]
+
+norm_file = f'{rep}x{stg}_rwf_cnn_norm.asc'
+cnn_file = f'{rep}x{stg}_rwf_cnn.keras'
+rwf_file = f'{rep}x{stg}_target_rwf.asc'
+le = joblib.load(f'{rep}x{stg}_mac_label_enc.pkl')
 
 print('Load RWF CNN', flush=True)
 model = load_model(cnn_file)
