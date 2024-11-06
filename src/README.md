@@ -1,6 +1,6 @@
 # RF Fingerprint Matching
 
-Steps 1 and 3 use MATLAB to generate LTE waveforms for simulation and test. Steps 2 and 4 use Python to build the neural network, and test a case against it. Python is used so that the ML power of open-sourced TensorFlow can be harnessed
+Steps 1 and 3 use MATLAB to generate LTE waveforms for simulation and test. Steps 2 and 4 use Python to build the neural network, and test a case against it. Python is used so that the ML power and code flexibility of open-sourced TensorFlow can be harnessed
 
 &nbsp;
 
