@@ -63,6 +63,8 @@ Nested loops that test a range of repetitive factors by a range of strengths
 
 Truncating is necessary due to limits of CPU and memory
 
+Ultimately, this kind of CNN ML can be extended to any wireless platform. LTE was only applied here to demonstrate the principle of RF Fingerprinting
+
 ## To Do
 
 Capture MATLAB graphs
