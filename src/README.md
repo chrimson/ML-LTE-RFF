@@ -55,7 +55,7 @@ __s4_MatchUEbyRWF.py__ Model predicts the target RWF, decodes its associated lab
 Numbered scripts may be used to invoke steps  
 ./1.sh 25 15  
 ./2.sh 25 15  
-./3.sh 25 15 1.285475e-02 1.464078e-02 5.640578e-03 1.332074e-02 1.405434e-01 4.589930e-02 
+./3.sh 25 15 1.285475e-02 1.464078e-02 5.640578e-03 1.332074e-02 1.405434e-01 4.589930e-02  
 ./4.sh 25 15
 
 Nested loops that test a range of repetitive factors by a range of strengths  
