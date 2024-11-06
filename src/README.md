@@ -29,7 +29,7 @@ __s2_BuildTrainCNN.py__ RWFs are applied to build the Convolutional Neural Netwo
 
 &nbsp;
 
-__s3_LTE_RWF_test.m__ A set of RWF characteristic parameters from *ue_rwf_parms.asc* may be chosen for variables A, B, C, D, J and K and edited from default in the MATLAB script. Then this step will generate a target variant RWF with marginal deviations. Take note of the UE's associated MAC address, but observe that NO definite MAC address will be passed into the next step (just the label encoding of all MAC addresses)
+__s3_LTE_RWF_test.m__ A set of RWF characteristic parameters from *ue_rwf_parms.asc* may be chosen for variables A, B, C, D, J and K and passed into the MATLAB script. Then this step will generate a target variant RWF with marginal deviations. Take note of the UE's associated MAC address, but observe that NO definite MAC address will be passed into the next step (just the label encoding of all MAC addresses)
 
 &nbsp;&nbsp;&nbsp;&nbsp;Inputs  
 &nbsp;&nbsp;&nbsp;&nbsp;Repetitive factor of sine and cosine combination (e.g. 25)  
