@@ -50,6 +50,14 @@ __s4_MatchUEbyRWF.py__ Model predicts the target RWF, decodes its associated lab
 &nbsp;&nbsp;&nbsp;&nbsp;Outputs  
 &nbsp;&nbsp;&nbsp;&nbsp;Returns the MAC address of the UE that most closely matches its RWF to the test target and the confidence of its answer
 
+&nbsp;
+
+<img src="../img/s15r15c02x.jpg" width="300">
+<img src="../img/s15r30c99.jpg" width="300">
+<img src="../img/s20r30c90.jpg" width="300">
+<img src="../img/1var2rff2ts2sa.jpg" width="300">
+<img src="../img/8var1rff.jpg" width="300">
+
 ## Notes
   
 Numbered scripts may be used to invoke steps  
