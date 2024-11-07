@@ -32,7 +32,7 @@ function [] = s1_LTE_RWF_dataset(rep, str)
 
     %% RFF Waveforms (RWF)
     % So the deviation (limited by dev=0.05) multiplicative factor would be
-    % between 0.95 and 1.05
+    % between 0.975 and 1.025
     base = 1 - dev / 2;
     t = 1 : trunc;
     for rwf_iter = 1:num_rwf
