@@ -53,18 +53,31 @@ __s4_MatchUEbyRWF.py__ Model predicts the target RWF, decodes its associated lab
 &nbsp;
 
 Eight variants by 5% of one RF Fingerprint
+
 <img src="../img/8var1rff.jpg" width="600">
 
+&nbsp;
+
 Two different RFFs. Waveform with and without an applied RFF. Their corresponding Spectrum Analyzers still match
+
 <img src="../img/1var2rff2ts2sa.jpg" width="600">
 
+&nbsp;
+
 Repetitive 15, Strength 15% results in confidence of 2% in the wrong guessed UE match
+
 <img src="../img/s15r15c02x.jpg" width="600">
 
+&nbsp;
+
 Repetitive 30, Strength 20% results in confidence of 90% in the correctly guessed UE match
+
 <img src="../img/s20r30c90.jpg" width="600">
 
+&nbsp;
+
 Repetitive 30, Strength 15% results in confidence of 99% in the correctly guessed UE match
+
 <img src="../img/s15r30c99.jpg" width="600">
 
 ## Notes
