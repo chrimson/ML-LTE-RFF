@@ -10,7 +10,7 @@ do
 
          python3 s2_BuildTrainCNN.py $rep $str
 
-         PARMS=$(grep 33-04-E7-92-52-BD ${rep}x${str}_ue_rwf_parm.asc | awk '{ print $2 }')
+         PARMS=$(grep 33-04-E7-92-52-BD ${rep}x${str}_ue_rwf_parm.asc | awk '{ print $2 $3 $4 $5 $6 $7 }')
 
          matlab -nodisplay -nodesktop -nosplash -r "s3_LTE_RWF_test($rep, $str, $PARMS); exit;"
 

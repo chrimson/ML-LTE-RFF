@@ -82,7 +82,7 @@ function [] = s1_LTE_RWF_dataset(rep, str)
             end
             if max+1 == 0
                 fid = fopen(sprintf('%dx%d_ue_rwf_parm.asc', rep, str), 'a+');
-                fprintf(fid, sprintf('%s %d,%d,%d,%d,%d,%d\n', mac, A, B, C, D, J, K));
+                fprintf(fid, sprintf('%s %d %d %d %d %d %d\n', mac, A, B, C, D, J, K));
             end
             fid = fopen(sprintf('%s/%04d', mac_path, max+1), 'w');
     %        fprintf(fid, '%.4f + %.4fi\n', [real(waveform(:)), imag(waveform(:))].');

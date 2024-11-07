@@ -30,14 +30,8 @@ function [] = s3_LTE_RWF_test(rep, str, A, B, C, D, J, K)
     t = 1 : rwf_len;
 
     %% RF Fingerprint
-    % Choose a set of parameters from ue_rwf_parms.asc
-    %  Now parameterized
-%    A = 7.712849e-03
-%    B = 8.784469e-03
-%    C = 3.384347e-03
-%    D = 7.992447e-03
-%    J = 2.342390e-01
-%    K = 7.649883e-02
+    % Choosing a set of parameters from ue_rwf_parms.asc has now been
+    % parameterized with CLI arguments
 
     % So the deviation (limited by dev=0.05) multiplicative factor would be
     % between 0.95 and 1.05

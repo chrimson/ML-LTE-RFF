@@ -97,6 +97,14 @@ Ultimately, this kind of CNN ML can be extended to any wireless platform. LTE wa
 
 ## To Do
 
-Update and retrain model
+Conditionally update or retrain model:
+
+If low confidence but correct MAC, add new data under same MAC
+
+If high confidence and correct MAC, add new data under same MAC
+
+If low confidence and incorrect MAC, add new data under new MAC
+
+If high confidence and incorrect MAC, __FLAG!__ Actual UE identified by RFF may be cloning other UEs
 
 Restore applicable impairments
