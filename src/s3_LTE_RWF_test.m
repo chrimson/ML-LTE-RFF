@@ -34,7 +34,7 @@ function [] = s3_LTE_RWF_test(rep, str, A, B, C, D, J, K)
     % parameterized with CLI arguments
 
     % So the deviation (limited by dev=0.05) multiplicative factor would be
-    % between 0.95 and 1.05
+    % between 0.975 and 1.025
     base = 1 - dev / 2;
     rff = 1 + ...
         (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
