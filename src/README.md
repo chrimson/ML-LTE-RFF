@@ -64,7 +64,7 @@ Two different RFFs. Waveform with and without an applied RFF. Their correspondin
 
 &nbsp;
 
-Repetitive 15, Strength 15% results in confidence of 2% in the wrong guessed UE match
+Repetitive 15, Strength 15% results in confidence of 2% in the incorrectly guessed UE match
 
 <img src="../img/s15r15c02x.jpg" width="600">
 
