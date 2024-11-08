@@ -15,6 +15,7 @@ print("TensorFlow", tf.__version__, flush=True)
 
 rep = sys.argv[1]
 stg = sys.argv[2]
+mac = sys.argv[3]
 
 norm_file = f'{rep}x{stg}_rwf_cnn_norm.asc'
 cnn_file = f'{rep}x{stg}_rwf_cnn.keras'
@@ -30,18 +31,23 @@ with open(rwf_file) as file:
   for line in file:
     cpx = re.sub('[+ij]', '', line).split()
     rwf.append([float(cpx[0]), float(cpx[1])])
-# print(f"{rwf} {len(rwf)}\n")
 
-print('Convert list of one target RWF to NumPy array', flush=True)
+print('Convert lists of one target to NumPy arrays', flush=True)
 # Move zero-centric to [0,1] normalization
 with open(norm_file) as file:
   norm = float(file.read())
 RWF = np.array([rwf]) * norm + 0.5
-# print(f'{RWF} {len(RWF)}\n')
 
-print('Predict target', flush=True)
-predicted = model.predict(RWF)
-pred = np.argmax(predicted, axis=1)
-predicted_label = le.inverse_transform(pred)[0]
-prob = predicted[0][pred[0]]
-print(f'{predicted_label} {prob}\n', flush=True)
+print('Label encoding', flush=True)
+#le = LabelEncoder()
+#le.classes_ = np.append(le.classes_, mac)
+#joblib.dump(le, f'{rep}x{stg}_mac_label_enc.pkl')
+#MAC = np.array([le.fit_transform(le.classes_)[-1]])
+MAC = le.transform([mac])
+
+print('Retraining, save', flush=True)
+#model.fit(RWF, MAC, validation_split=0.2, batch_size=16, epochs=10)
+model.fit(RWF, MAC, batch_size=16, epochs=1)
+model.save(cnn_file)
+
+print('Done', flush=True)
