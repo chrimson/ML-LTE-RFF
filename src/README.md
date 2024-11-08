@@ -91,6 +91,21 @@ Numbered scripts may be used to invoke steps
 Nested loops that test a range of repetitive factors by a range of strengths  
 ./all.sh
 
+To run in the background without terminating if logging out  
+nohup ./all.sh > 20241108_0221_all.log &
+
+And viewing that log as it is generated  
+tail -fn+0 20241108_0221_all.log
+
+To clear all generated files that Git does not control, including dataset or .keras  
+git clean -fdx
+
+Example on how to restore current baseline of edited file  
+git restore s1_LTE_RWF_dataset.m
+
+How to restore current baseline of all controlled code  
+git restore :/
+
 Truncating is necessary due to limits of CPU and memory
 
 Ultimately, this kind of CNN ML can be extended to any wireless platform. LTE was only applied here to demonstrate the principle of RF Fingerprint recognition
@@ -108,3 +123,7 @@ If low confidence and incorrect MAC, add new data under new MAC
 If high confidence and incorrect MAC, __FLAG!__ Actual UE identified by RFF may be cloning other UEs
 
 Restore applicable impairments
+
+Can eventually test with two hardware SDRs
+
+Can invoke system with TensorFlow GPU-enabled engine on suitable machines
