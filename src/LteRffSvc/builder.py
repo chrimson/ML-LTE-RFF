@@ -1,5 +1,7 @@
 from logger import log
+import service as s
 
+import joblib
 from keras.models import Sequential
 from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
 from sklearn.preprocessing import LabelEncoder
@@ -29,6 +31,7 @@ def build(rwfs, macs):
     # log('Train, save')
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
     model.fit(rwfsh, macsh, validation_split=0.2, batch_size=16, epochs=10, verbose=2)
-#    model.save(cnn_file)
+    model.save(s.MODEL)
+    joblib.dump(le, s.LABELS)
 
     return model, le

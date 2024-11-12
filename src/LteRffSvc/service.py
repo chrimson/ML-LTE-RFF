@@ -23,7 +23,7 @@ SAME_MACS_COMP_RWF  = 0.50
 DIFF_MACS_DIFF_RWF  = 0.20
 DIFF_MACS_SAME_RWF  = 0.80
 
-def main():
+def service():
     # Read dataset
     rwfs, macs = reader.read(DATASET)
 
@@ -32,8 +32,6 @@ def main():
         le = joblib.load(LABELS)
     else:
         model, le = builder.build(rwfs, macs)
-        model.save(MODEL)
-        joblib.dump(le, LABELS)
 
     log(f'Monitoring {STAGE}/')
     if not os.path.isdir(STAGE):
@@ -69,12 +67,12 @@ def main():
 
                 elif pred_prob > DIFF_MACS_SAME_RWF:
                     log(f'Diff MACs, RWF > {DIFF_MACS_SAME_RWF} flag for inconsistency')
+                    os.remove(f'{STAGE}/{claim_mac}')
 
                 else:
                     log(f'Inconclusive, not updating')
+                    os.remove(f'{STAGE}/{claim_mac}')
 
-            # For now
-#            os.remove(f'{STAGE}/{claim_mac}')
         time.sleep(CHECK_STAGE_SECONDS)
 
 
@@ -86,12 +84,10 @@ def update(rwf, claim_mac, rwfs, macs):
     np.append(rwfs, rwf)
     np.append(macs, claim_mac)
 
-    # Rebuild, save, dump
+    # Rebuild
     model, le = builder.build(rwfs, macs)
-    model.save(MODEL)
-    joblib.dump(le, LABELS)
     return model, le
 
 
 if __name__ == "__main__":
-    main()
+    service()
