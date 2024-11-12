@@ -18,10 +18,10 @@ MODEL               = './rwf.keras'
 LABELS              = './rwf.pkl'
 DATASET             = './dataset'
 STAGE               = './stage'
+FLAG                = './flag'
 CHECK_STAGE_SECONDS = 5
-SAME_MACS_COMP_RWF  = 0.50
-DIFF_MACS_DIFF_RWF  = 0.20
-DIFF_MACS_SAME_RWF  = 0.80
+SAME_MACS_CMPR_RWF  = 0.50
+DIFF_MACS_CMPR_RWF  = 0.80
 
 def service():
     # Read dataset
@@ -32,6 +32,9 @@ def service():
         le = joblib.load(LABELS)
     else:
         model, le = builder.build(rwfs, macs)
+
+    if not os.path.isdir(FLAG):
+        os.mkdir(FLAG)
 
     log(f'Monitoring {STAGE}/')
     if not os.path.isdir(STAGE):
@@ -46,32 +49,29 @@ def service():
             # Predictor
             if pred_mac == claim_mac:
 
-                if pred_prob >= SAME_MACS_COMP_RWF:
-                    log(f'Same MACs, RWF >= {SAME_MACS_COMP_RWF} checks out')
-                    os.remove(f'{STAGE}/{claim_mac}')
-
-                else:
-                    log(f'Same MACs, RWF < {SAME_MACS_COMP_RWF} strengthen')
-                    # Move to approprate MAC and sequence number in dataset
+                if pred_prob < SAME_MACS_CMPR_RWF:
+                    log(f'Same MACs, RWF  < {SAME_MACS_CMPR_RWF} strengthen')
                     index = len(os.listdir(f'{DATASET}/{claim_mac}'))
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
+                else:
+                    log(f'Same MACs, RWF >= {SAME_MACS_CMPR_RWF} checks out')
+                    os.remove(f'{STAGE}/{claim_mac}')
+
             else:
             
-                if pred_prob < DIFF_MACS_DIFF_RWF:
-                    log(f'Diff MACs, RWF < {DIFF_MACS_DIFF_RWF} learn claimed MAC')
-                    # Move to approprate MAC and sequence number in dataset
+                if pred_prob < DIFF_MACS_CMPR_RWF:
+                    log(f'Diff MACs, RWF  < {DIFF_MACS_CMPR_RWF} learn claimed MAC')
                     if not os.path.exists(f'{DATASET}/{claim_mac}'):
                         os.mkdir(f'{DATASET}/{claim_mac}')
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
-                elif pred_prob > DIFF_MACS_SAME_RWF:
-                    log(f'Diff MACs, RWF > {DIFF_MACS_SAME_RWF} flag for inconsistency')
-                    os.remove(f'{STAGE}/{claim_mac}')
-
                 else:
-                    log(f'Inconclusive, not updating')
-                    os.remove(f'{STAGE}/{claim_mac}')
+                    log(f'Diff MACs, RWF  > {DIFF_MACS_CMPR_RWF} flag for examination')
+                    if not os.path.exists(f'{FLAG}/{claim_mac}_{pred_mac}'):
+                        os.mkdir(f'{FLAG}/{claim_mac}_{pred_mac}')
+                    index = len(os.listdir(f'{FLAG}/{claim_mac}_{pred_mac}'))
+                    shutil.move(f'{STAGE}/{claim_mac}', f'{FLAG}/{claim_mac}_{pred_mac}/{index:04d}')
 
         time.sleep(CHECK_STAGE_SECONDS)
 

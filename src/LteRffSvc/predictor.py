@@ -20,7 +20,7 @@ def predict(model, le, stage, claim_mac):
     rwf = np.array([rwf_l]) * norm + 0.5
     
     # log('Predict target')
-    predicted = model.predict(rwf, verbose=2)
+    predicted = model.predict(rwf, verbose=0)
     pred = np.argmax(predicted, axis=1)
     pred_mac = le.inverse_transform(pred)[0]
     pred_prob = predicted[0][pred[0]]
@@ -30,7 +30,7 @@ def predict(model, le, stage, claim_mac):
         claim_prob = predicted[0][le.transform([claim_mac])[0]]
         log(f'Claim {claim_mac} {claim_prob}')
     else:
-        log(f'New   {claim_mac}')
+        log(f'None  {claim_mac}')
         claim_prob = 0
 
     return pred_mac, pred_prob, claim_prob, rwf
