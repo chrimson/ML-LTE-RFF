@@ -4,7 +4,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 warnings.filterwarnings("ignore")
 
 from keras.models import load_model
-
+import joblib
 import time
 
 from logger import log
@@ -13,16 +13,18 @@ import builder
 import predictor
 
 MODEL               = './rwf_cnn.keras'
+LABELS              = './rwf_cnn.pkl'
 DATASET             = './dataset'
 STAGE               = './stage'
 CHECK_STAGE_SECONDS = 10
 
 def main():
     # Read dataset
-    rwfs, macs = reader.read()
+    rwfs, macs = reader.read(DATASET)
 
     if os.path.exists(MODEL):
         model = load_model(MODEL)
+        le = joblib.load(LABELS)
     else:
         model, le = builder.build(rwfs, macs)
 

@@ -5,21 +5,21 @@ import re
 
 def read(dataset):
     log('Read RWFs and MACs from dataset')
-    if not os.path.isdir(DATASET):
-        os.mkdir(DATASET)
+    if not os.path.isdir(dataset):
+        os.mkdir(dataset)
 
     rwfs_l= []
     macs_l= []
     mag = 1e-10
-    dir_list = os.listdir(DATASET)
+    dir_list = os.listdir(dataset)
     for mac_id in dir_list:
-        log(f'{mac_id} read')
-        mac_dir = os.path.join(DATASET, mac_id)
+        log(f'Read    {mac_id}')
+        mac_dir = os.path.join(dataset, mac_id)
         file_list = os.listdir(mac_dir)
         for rwf_file in file_list:
             print(rwf_file, end=' ')
             rwf = []
-            with open(os.path.join(DATASET, mac_id, rwf_file)) as file:
+            with open(os.path.join(dataset, mac_id, rwf_file)) as file:
                for line in file:
                    cpx = re.sub('[+ij]', '', line).split()
                    real = float(cpx[0])

@@ -5,3 +5,5 @@
 *.swp
 *ue_rwf_data
 __pycache__
+src/LteRffSvc/dataset/
+src/LteRffSvc/stage/
