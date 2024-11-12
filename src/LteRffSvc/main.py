@@ -31,7 +31,7 @@ def main():
     else:
         model, le = builder.build(rwfs, macs)
         model.save(MODEL)
-        joblib.dump(le, STAGE)
+        joblib.dump(le, LABELS)
 
     log(f'Monitoring {STAGE}/')
     if not os.path.isdir(STAGE):
