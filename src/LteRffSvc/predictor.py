@@ -33,4 +33,4 @@ def predict(model, le, stage, claim_mac):
         log(f'New   {claim_mac}')
         claim_prob = 0
 
-    return pred_mac, pred_prob, claim_prob
+    return pred_mac, pred_prob, claim_prob, rwf
