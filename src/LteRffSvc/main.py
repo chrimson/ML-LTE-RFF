@@ -17,47 +17,57 @@ LABELS              = './rwf_cnn.pkl'
 DATASET             = './dataset'
 STAGE               = './stage'
 CHECK_STAGE_SECONDS = 10
+MATCHING_MACS_CONF  = 0.50
+DIFF_MACS_NEW_RWF   = 0.20
+DIFF_MACS_SAME_RWF  = 0.80
 
 def main():
     # Read dataset
     rwfs, macs = reader.read(DATASET)
 
-    if os.path.exists(MODEL):
+    if os.path.exists(MODEL) and os.path.exists(LABELS):
         model = load_model(MODEL)
         le = joblib.load(LABELS)
     else:
         model, le = builder.build(rwfs, macs)
+        model.save(MODEL)
+        joblib.dump(le, STAGE)
 
-    log('Monitoring stage')
+    log(f'Monitoring {STAGE}/')
     if not os.path.isdir(STAGE):
         os.mkdir(STAGE)
     # Daemon loop
     while True:
-        macs = os.listdir(STAGE)
-        if len(macs) != 0:
-            predictor.predict(model, le, STAGE, macs[0])
+        staged_macs = os.listdir(STAGE)
+        if len(staged_macs) != 0:
+            claim_mac = staged_macs[0]
+            pred_mac, pred_prob, claim_prob = predictor.predict(model, le, STAGE, claim_mac)
 
             # Predictor
-#            if predicted_label == mac:
-#            
-#              if prob > 0.50:
-#                print('MACs match. High enough', flush=True)
-#            
-#              if prob < 0.50:
-#                print('Strengthen', flush=True)
-#            
-#            if predicted_label != mac:
-#            
-#              if prob < 0.20:
-#                print('Learning new MAC\'s RWF', flush=True)
-#            
-#              elif prob > 0.80:
-#                print('FLAG', flush=True)
-#            
-#              else:
-#                print('Inconclusive. Not updating', flush=True)
+            if pred_mac == claim_mac:
 
+                if pred_prob >= MATCHING_MACS_CONF:
+                    log(f'MACs match >= {MATCHING_MACS_CONF}, fair enough')
 
+                else:
+                    log(f'MACs match < {MATCHING_MACS_CONF}, strengthen')
+                    # Move to approprate MAC and sequence number in dataset
+                    # Add to rwfs and macs np arrays
+                    # Rebuild, save, dump
+
+            else:
+            
+                 if pred_prob < DIFF_MACS_NEW_RWF:
+                     log(f'Different MACs match RWF < {DIFF_MACS_NEW_RWF}, learn claimed MAC\'s RWF')
+
+                 elif pred_prob > DIFF_MACS_SAME_RWF:
+                     log(f'Different MACs match RWF > {DIFF_MACS_SAME_RWF}, flag for inconsistency')
+
+                 else:
+                     log(f'Inconclusive, not updating')
+
+            # For now
+            os.remove(f'{STAGE}/{claim_mac}')
 
         time.sleep(CHECK_STAGE_SECONDS)
 
