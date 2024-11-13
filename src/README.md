@@ -193,6 +193,8 @@ Epoch 10/10
 
 Fix the Service for sometims bad predictions after rebuilding the model with new data, it's probably not being appended correctly
 
+REST Web Service API, accept submissions of SigMF
+
 Restore applicable impairments
 
 Can eventually test with two hardware SDRs
