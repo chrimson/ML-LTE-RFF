@@ -12,10 +12,10 @@ def build(rwfs, macs):
 
     # log('Label encoding')
     le = LabelEncoder()
-    macs = le.fit_transform(macs)
+    macs_e = le.fit_transform(macs)
    
     # log('Shuffle arrays')
-    rwfsh, macsh = shuffle(rwfs, macs, random_state=42)
+    rwfsh, macsh = shuffle(rwfs, macs_e, random_state=42)
 
     # log('Build CNN model')
     trunc = int(rwfs[0].size / 2)
