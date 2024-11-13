@@ -141,8 +141,8 @@ python service.py
 In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc.
 
 ```
-cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
 cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
+cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
 cp ../25x20_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
 ```
 
@@ -157,6 +157,11 @@ Chris@MULLET:~/MULLET/src/LteRffSvc$ python service.py
 ...
 2024-11-13 04:05:43.432723 Read 33-04-E7-92-52-BD 50 Variants
 2024-11-13 04:17:23.811551 Monitoring ./stage/
+
+2024-11-13 04:19:48.817076 Import target RWF from stage
+2024-11-13 04:19:48.868890 Guess 33-04-E7-92-52-BD Probability 95.20%
+2024-11-13 04:19:48.869099 Claim 33-XX-XX-XX-XX-XX Probability N/A
+2024-11-13 04:19:48.871216 Diff MACs, RWF > 80% Flag for examination
 
 2024-11-13 04:20:28.873006 Import target RWF from stage
 2024-11-13 04:20:28.921321 Guess 33-04-E7-92-52-BD Probability 95.20%
@@ -180,11 +185,9 @@ Epoch 10/10
 2024-11-13 04:41:18.055316 Done
 ```
 
-See below
-
 ## To Do
 
-Fix the Service for bad predictions after rebuilding the model with new data, it's probably not being appended correctly
+Fix the Service for sometims bad predictions after rebuilding the model with new data, it's probably not being appended correctly
 
 Restore applicable impairments
 
