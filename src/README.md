@@ -184,7 +184,7 @@ See below
 
 ## To Do
 
-Fix the Service for bad predictions after rebuilding. When rebuilding the model with new data, it is probably not being appended correctly
+Fix the Service for bad predictions after rebuilding the model with new data, it's probably not being appended correctly
 
 Restore applicable impairments
 
