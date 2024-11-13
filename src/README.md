@@ -146,23 +146,23 @@ cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
 cp ../25x20_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
 ```
 
-Observe service operations
+Observe service operations in the first terminal
 
 ```bash
 Chris@MULLET:~/MULLET/src/LteRffSvc$ python service.py
+
 2024-11-13 04:05:08.118159 Read 50 MACs and their variant RWFs from dataset
 2024-11-13 04:05:08.922803 Read 40-3B-7B-23-50-20 50 Variants
 2024-11-13 04:05:09.779825 Read 4D-22-47-3E-13-CE 50 Variants
 ...
 2024-11-13 04:05:43.432723 Read 33-04-E7-92-52-BD 50 Variants
 2024-11-13 04:17:23.811551 Monitoring ./stage/
-...
+
 2024-11-13 04:20:28.873006 Import target RWF from stage
 2024-11-13 04:20:28.921321 Guess 33-04-E7-92-52-BD Probability 95.20%
 2024-11-13 04:20:28.922340 Claim 33-04-E7-92-52-BD Probability 95.20%
 2024-11-13 04:20:28.923424 Same MACs, RWF >= 50% Checks out
-2024-11-13 04:23:28.930327 Import target RWF from stage
-...
+
 2024-11-13 04:29:19.151990 Import target RWF from stage
 2024-11-13 04:29:19.193609 Guess 4A-2C-09-12-C0-1C Probability 43.32%
 2024-11-13 04:29:19.194691 Claim 4A-2C-09-12-C0-1C Probability 43.32%
@@ -179,6 +179,8 @@ Epoch 10/10
 125/125 - 84s - 670ms/step - accuracy: 0.0375 - loss: 3.6918 - val_accuracy: 0.0499 - val_loss: 3.6574
 2024-11-13 04:41:18.055316 Done
 ```
+
+See below
 
 ## To Do
 
