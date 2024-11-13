@@ -81,8 +81,8 @@ def update(rwf, claim_mac, rwfs, macs):
     shutil.move(f'{STAGE}/{claim_mac}', f'{DATASET}/{claim_mac}/{index:04d}')
 
     # Add to rwfs and macs np arrays
-    np.append(rwfs, rwf)
-    np.append(macs, claim_mac)
+    rwfs = np.append(rwfs, rwf)
+    macs = np.append(macs, claim_mac)
 
     # Rebuild
     model, le = builder.build(rwfs, macs)
