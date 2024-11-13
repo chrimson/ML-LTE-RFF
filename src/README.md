@@ -138,19 +138,23 @@ Launch service in one terminal
 python service.py
 ```
 
-In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc.
+In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc. Observe flag directory
 
 ```
 cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
 cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
 cp ../25x20_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
+
+Chris@MULLET:~/MULLET/src/LteRffSvc$ ls -lR flag/
+flag/:
+33-XX-XX-XX-XX-XX_33-04-E7-92-52-BD
+flag/33-XX-XX-XX-XX-XX_33-04-E7-92-52-BD:
+0000
 ```
 
 Observe service operations in the first terminal
 
-```bash
-Chris@MULLET:~/MULLET/src/LteRffSvc$ python service.py
-
+```
 2024-11-13 04:05:08.118159 Read 50 MACs and their variant RWFs from dataset
 2024-11-13 04:05:08.922803 Read 40-3B-7B-23-50-20 50 Variants
 2024-11-13 04:05:09.779825 Read 4D-22-47-3E-13-CE 50 Variants
