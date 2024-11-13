@@ -27,7 +27,7 @@ def read(dataset):
                    rwf.append([real, imag])
             rwfs_l.append(rwf)
             macs_l.append(mac_id)
-        log(f'Read {mac_id} {len(file_list)} variants')
+        log(f'Read {mac_id} {len(file_list)} Variants')
 
     # log('Convert lists to NumPy arrays, normalizing RWFs')
     norm = 0.5 / mag 

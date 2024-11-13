@@ -34,4 +34,5 @@ def build(rwfs, macs):
     model.save(s.MODEL)
     joblib.dump(le, s.LABELS)
 
+    log('Done')
     return model, le

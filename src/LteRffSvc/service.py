@@ -50,24 +50,24 @@ def service():
             if pred_mac == claim_mac:
 
                 if pred_prob < SAME_MACS_CMPR_RWF:
-                    log(f'Same MACs, RWF  < {SAME_MACS_CMPR_RWF} strengthen')
+                    log(f'Same MACs, RWF < {SAME_MACS_CMPR_RWF:.0%} Strengthen')
                     index = len(os.listdir(f'{DATASET}/{claim_mac}'))
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
                 else:
-                    log(f'Same MACs, RWF >= {SAME_MACS_CMPR_RWF} checks out')
+                    log(f'Same MACs, RWF >= {SAME_MACS_CMPR_RWF:.0%} Checks out')
                     os.remove(f'{STAGE}/{claim_mac}')
 
             else:
             
                 if pred_prob < DIFF_MACS_CMPR_RWF:
-                    log(f'Diff MACs, RWF  < {DIFF_MACS_CMPR_RWF} learn claimed MAC')
+                    log(f'Diff MACs, RWF < {DIFF_MACS_CMPR_RWF:.0%} Learn claimed MAC')
                     if not os.path.exists(f'{DATASET}/{claim_mac}'):
                         os.mkdir(f'{DATASET}/{claim_mac}')
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
                 else:
-                    log(f'Diff MACs, RWF  > {DIFF_MACS_CMPR_RWF} flag for examination')
+                    log(f'Diff MACs, RWF > {DIFF_MACS_CMPR_RWF:.0%} Flag for examination')
                     if not os.path.exists(f'{FLAG}/{claim_mac}_{pred_mac}'):
                         os.mkdir(f'{FLAG}/{claim_mac}_{pred_mac}')
                     index = len(os.listdir(f'{FLAG}/{claim_mac}_{pred_mac}'))
@@ -81,7 +81,7 @@ def update(rwf, claim_mac, rwfs, macs):
     shutil.move(f'{STAGE}/{claim_mac}', f'{DATASET}/{claim_mac}/{index:04d}')
 
     # Add to rwfs and macs np arrays
-    rwfs = np.append(rwfs, rwf)
+    rwfs = np.append(rwfs, rwf, axis=0)
     macs = np.append(macs, claim_mac)
 
     # Rebuild
