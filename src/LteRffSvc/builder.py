@@ -8,11 +8,9 @@ from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import shuffle
 
-EPOCHS = 3
-
 class CustomBuild(Callback):
     def on_epoch_begin(self, epoch, logs=None):
-        lug(f"  Epoch {epoch + 1}/{EPOCHS}")
+        lug(f"  Epoch {epoch + 1}/{s.EPOCHS}")
 
     def on_epoch_end(self, epoch, logs=None):
         accuracy = logs.get('accuracy')
@@ -46,7 +44,7 @@ def build(rwfs, macs):
         macsh,
         validation_split=0.2,
         batch_size=16,
-        epochs=EPOCHS,
+        epochs=s.EPOCHS,
         verbose=0,
         callbacks=[CustomBuild()])
     model.save(s.MODEL)
