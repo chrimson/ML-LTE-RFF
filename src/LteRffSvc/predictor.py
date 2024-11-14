@@ -24,13 +24,13 @@ def predict(model, le, stage, claim_mac):
     pred = np.argmax(predicted, axis=1)
     pred_mac = le.inverse_transform(pred)[0]
     pred_prob = predicted[0][pred[0]]
-    log(f'Guess {pred_mac} Probability {pred_prob:.2%}')
+    log(f'  Guess {pred_mac} Probability {pred_prob:.2%}')
 
     if claim_mac in le.classes_:
         claim_prob = predicted[0][le.transform([claim_mac])[0]]
-        log(f'Claim {claim_mac} Probability {claim_prob:.2%}')
+        log(f'  Claim {claim_mac} Probability {claim_prob:.2%}')
     else:
-        log(f'Claim {claim_mac} Probability N/A')
+        log(f'  Claim {claim_mac} Probability N/A')
         claim_prob = 0
 
     return pred_mac, pred_prob, claim_prob, rwf

@@ -50,24 +50,24 @@ def service():
             if pred_mac == claim_mac:
 
                 if pred_prob < SAME_MACS_CMPR_RWF:
-                    log(f'Same MACs, RWF < {SAME_MACS_CMPR_RWF:.0%} Strengthen')
+                    log(f'  Same MACs, RWF < {SAME_MACS_CMPR_RWF:.0%} Strengthen')
                     index = len(os.listdir(f'{DATASET}/{claim_mac}'))
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
                 else:
-                    log(f'Same MACs, RWF >= {SAME_MACS_CMPR_RWF:.0%} Checks out')
+                    log(f'  Same MACs, RWF >= {SAME_MACS_CMPR_RWF:.0%} Checks out')
                     os.remove(f'{STAGE}/{claim_mac}')
 
             else:
             
                 if pred_prob < DIFF_MACS_CMPR_RWF:
-                    log(f'Diff MACs, RWF < {DIFF_MACS_CMPR_RWF:.0%} Learn claimed MAC')
+                    log(f'  Diff MACs, RWF < {DIFF_MACS_CMPR_RWF:.0%} Learn claimed MAC')
                     if not os.path.exists(f'{DATASET}/{claim_mac}'):
                         os.mkdir(f'{DATASET}/{claim_mac}')
                     model, le = update(rwf, claim_mac, rwfs, macs)
 
                 else:
-                    log(f'Diff MACs, RWF > {DIFF_MACS_CMPR_RWF:.0%} Flag for examination')
+                    log(f'  Diff MACs, RWF > {DIFF_MACS_CMPR_RWF:.0%} Flag for examination')
                     if not os.path.exists(f'{FLAG}/{claim_mac}_{pred_mac}'):
                         os.mkdir(f'{FLAG}/{claim_mac}_{pred_mac}')
                     index = len(os.listdir(f'{FLAG}/{claim_mac}_{pred_mac}'))

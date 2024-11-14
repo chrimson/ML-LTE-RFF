@@ -1,11 +1,22 @@
-from logger import log
+from logger import log, lug, leg
 import service as s
 
 import joblib
+from keras.callbacks import Callback
 from keras.models import Sequential
 from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import shuffle
+
+EPOCHS = 3
+
+class CustomBuild(Callback):
+    def on_epoch_begin(self, epoch, logs=None):
+        lug(f"  Epoch {epoch + 1}/{EPOCHS}")
+
+    def on_epoch_end(self, epoch, logs=None):
+        accuracy = logs.get('accuracy')
+        leg(f"Accuracy {accuracy:.2%}")
 
 def build(rwfs, macs):
     log('Build and train')
@@ -30,9 +41,15 @@ def build(rwfs, macs):
 
     # log('Train, save')
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
-    model.fit(rwfsh, macsh, validation_split=0.2, batch_size=16, epochs=10, verbose=2)
+    model.fit(
+        rwfsh,
+        macsh,
+        validation_split=0.2,
+        batch_size=16,
+        epochs=3,
+        verbose=0,
+        callbacks=[CustomBuild()])
     model.save(s.MODEL)
     joblib.dump(le, s.LABELS)
 
-    log('Done')
     return model, le
