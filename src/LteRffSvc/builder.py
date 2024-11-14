@@ -46,7 +46,7 @@ def build(rwfs, macs):
         macsh,
         validation_split=0.2,
         batch_size=16,
-        epochs=3,
+        epochs=EPOCHS,
         verbose=0,
         callbacks=[CustomBuild()])
     model.save(s.MODEL)
