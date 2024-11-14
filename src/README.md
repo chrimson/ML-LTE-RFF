@@ -189,9 +189,9 @@ Epoch 10/10
 2024-11-13 04:41:18.055316 Done
 ```
 
-## To Do
+After rebuilding the model with new data, service predictions actually seemed to worsen. MAC encoding was changed from inline to unique NumPy array, and that seemed to have fixed it
 
-Fix the Service for sometims bad predictions after rebuilding the model with new data, it's probably not being appended correctly
+## To Do
 
 REST Web Service API, accept submissions of SigMF
 
