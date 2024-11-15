@@ -22,9 +22,12 @@ Convolutional Neural Network
 apt update -y
 apt upgrade -y
 apt install -y python3-pip python3-venv
-pip install -U tensorflow-cpu --root /
-pip install -U scikit-learn --root /
+pip install -Uy tensorflow-cpu --root /
+pip install -Uy tensorflow[and-cuda] --root /
+pip install -Uy scikit-learn --root /
 ```
+
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local
 
 ### Docker
 Containers
