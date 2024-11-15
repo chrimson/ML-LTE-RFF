@@ -1,4 +1,4 @@
-https://github.com/chrimson/MULLET/blob/main/README.md### MULLET - ML LTE Fingerprinter
+### MULLET - ML LTE Fingerprinter
 [Web Page](https://chrimson.github.io/MULLET)
 
 ---
