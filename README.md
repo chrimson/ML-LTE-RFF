@@ -1,4 +1,4 @@
-### MULLET - ML LTE Fingerprinter
+https://github.com/chrimson/MULLET/blob/main/README.md### MULLET - ML LTE Fingerprinter
 [Web Page](https://chrimson.github.io/MULLET)
 
 ---
@@ -7,6 +7,8 @@
 LTE Uplink RMC  
 RF Fingerprint  
 Impairments
+
+2>/dev/null
 
 ### GNU Radio
 Python  
@@ -28,6 +30,9 @@ pip install -Uy scikit-learn --root /
 ```
 
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local
+https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local
+
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 
 ### Docker
 Containers
