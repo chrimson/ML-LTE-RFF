@@ -1,4 +1,4 @@
-# Machine Learning LTE RF Fingerprinting
+# Machine Learning LTE RF Fingerprinter
 
 ## Generation Tools
 
@@ -84,6 +84,26 @@ Repetitive 30, Strength 15% results in confidence of 99% in the correctly guesse
 
 <img src="img/s15r30c99.jpg" width="600">
 
+%nbsp;
+
+all.sh result
+
+```
+               repetition
+                 10    15    20    25    30    35
+          .10   0.33x 0.02x 0.04x 0.03x 0.02x 0.02x
+
+          .15   0.02x 0.02x 0.02x 0.02x 0.57  0.09x
+strength
+          .20   0.02x 0.22x 0.59  0.99  0.99  0.02x
+
+          .25   0.99  0.99  0.99  0.95  0.12x 0.99
+
+          .30   0.99  0.99  0.99  0.99  0.99  0.99
+
+          .35   0.70  0.99  0.99  0.99  0.15x 0.02x
+```
+
 ### Tool Notes
   
 Numbered scripts may be used to invoke steps  
@@ -115,8 +135,6 @@ Truncating is necessary due to limits of CPU and memory
 Ultimately, this kind of CNN ML can be extended to any wireless platform. LTE was only applied here to demonstrate the principle of RF Fingerprint recognition
 
 ## To Do
-
-REST Web Service API, accept submissions of SigMF
 
 Restore applicable impairments
 

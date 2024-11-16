@@ -1,4 +1,4 @@
-# Machine Learning LTE RF Fingerprinting
+# Machine Learning LTE RF Fingerprinter
 
 ## Service Application
 
@@ -75,7 +75,7 @@ Epoch 10/10
 
 After rebuilding the model with new data, service predictions actually seemed to worsen. MAC encoding was changed from inline to unique NumPy array, and that seemed to have fixed it
 
-Can accelerate system with TensorFlow GPU-enabled engine on suitable machines like AWS GPU CUDA
+Was able to accelerate system with TensorFlow GPU engine on suitable machine AWS NVIDIA CUDA-enabled GPU
 
 ## To Do
 
