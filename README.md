@@ -1,4 +1,4 @@
-### ML LTE RF Fingerprinter
+### Machine Learning LTE RF Fingerprinter
 [Web Page](https://chrimson.github.io/ML-LTE-RFF)
 
 ---
