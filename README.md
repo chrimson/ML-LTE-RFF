@@ -1,7 +1,11 @@
 # Machine Learning LTE RF Fingerprinter
-
+Brad Williams · Chris Limson  
+GMU CYSE 640 Wireless Network Security  
+Fall 2024 · Moinul Hossain, PhD  
 [chrimson.github.io/ML-LTE-RFF](https://chrimson.github.io/ML-LTE-RFF)  
-[github.com/chrimson/ML-LTE-RFF](https://github.com/chrimson/ML-LTE-RFF)
+
+[CYSE640_BradChris_ProjectProposalReport.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalReport.pdf)  
+[CYSE640_BradChris_ProjectProposalPresentation.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalPresentation.pdf)
 
 ## AWS EC2
 
