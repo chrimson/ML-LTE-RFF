@@ -3,40 +3,51 @@
 <head><title>Machine Learning LTE RF Fingerprinter</title></head>
 <body style="font-family:Arial,Helvetica,sans-serif;background-color:#000;color:#fff;">
 
-<h1>Machine Learning LTE RF Fingerprinter</h1>
-<h3>Brad Williams · Chris Limson</h3>
+<h1>Machine Learning LTE RF Fingerprint Service</h1>
+<h3>Brad Williams, G01234567 · Chris Limson, G01360952</h3>
 GMU CYSE 640 Wireless Network Security<p/>
 Fall 2024 · Moinul Hossain, PhD<p/>
 
-<h2>Abstract</h2>
+<hr/>
 
-This is a study of creating a proof-of-concept system that recognizes RF fingerprints extracted from LTE user equipment with an HTTP service for LTE vendors. 
+<h2>Abstract</h2>
+Brief summary of the project (150-200 words).<br/>
+Should include objectives, methods, key findings, and conclusions.<br/>
+This is a study of creating a proof-of-concept system that recognizes RF fingerprints extracted from LTE user equipment with an HTTP service.
 
 <h2>Introduction</h2>
-(structure of study)
+Background and Context: Overview of the problem or topic.<br/>
+Objective(s): Clear definition of what the project aims to achieve.<br/>
+Scope: Define the boundaries of the work.<br/>
+Significance: Why the project is important, particularly in the field of Wireless Network Security.<br/>
+(structure of report)
 
-<h2>Investigation</h2>
+<h2>Literature Review</h2>
+Summary of Related Work: Brief discussion of existing solutions, methodologies, or studies.<br/>
+Gaps Identified: What gaps or challenges in the literature does your project address?<br/>
 (includes generation by MATLAB, building neural network, testing the sample prediction)
 
-<h3>Generation of Sample Dataset</h3>
+<h2>Methodology</h2>
+Approach and Framework: Describe the methodology used to tackle the problem.</br>
+Tools and Technologies: List and explain any software, hardware, or frameworks utilized.</br>
+Data Sources: Mention any datasets, simulations, or experimental setups.</br>
 
-MATLAB CLI script to generate LTE compliant modulated uplink waveform which will include RF fingerprint (RFF) simulating device (UE) connection to Evolved Node Base (eNB base station)<p/>
-    
-Before demodulation, apply filters and OFDM to extract RFF<p/>
-    
-After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC<p/>
-    
-GNU Radio collect RFF Signal Metadata Format (sigMF)<p/>
+<h3>Generation of Sample Dataset</h3>
+MATLAB CLI script to generate LTE compliant modulated uplink waveform which will include RF fingerprint (RFF) simulating device (UE) connection to Evolved Node Base (eNB base station)</br>
+Before demodulation, apply filters and OFDM to extract RFF</br>
+After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC</br>
+GNU Radio collect RFF Signal Metadata Format (sigMF)
 
 <h3>Building Neural Network</h3>
-
-TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
+TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications
 
 <h3>Testing Sample Waveform Prediction</h3>
 (caveats: truncated at 5000 vs 307200, simulated fingerprint to sin/cos)
 
-<h2>Experimentation</h2>
-(graph shows different variances for one waveform, how two fingerprints may differ yet exhibit the same frequency spectrum, tried different values of repetitive and strength ranges)
+<h2>Implementation</h2>
+(graph shows different variances for one waveform, how two fingerprints may differ yet exhibit the same frequency spectrum, tried different values of repetitive and strength ranges)</br>
+
+<h3>Experimentation</h3>
 
 <h3>Case 1</h3>
 
@@ -47,8 +58,7 @@ TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF
 <h3>Results for Most Ideal Generation Parameters</h3>
 (table, 25 x 20)
 
-
-<h2>Service System</h2>
+<h3>Service System</h3>
 
 <h3>Architecture</h3>
 (put the python code together, dataset reader, builder, predictor)
@@ -59,14 +69,17 @@ TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF
 
 <h3>Observations</h3>
 
-<h2>Future Work</h2>
+<h2>Results and Analysis</h2>
+
+<h2>Discussion</h2>
+
+<h3>Future Work</h3>
 Real HW SDR experimentation, no truncation, "catastrophic forgetting"
 
 <h2>Conclusion</h2>
 (social, legal implications)
 
-
-<h2>Resources</h2>
+<h2>References</h2>
 
 <a href="https://github.com/chrimson/ML-LTE-RFF">GitHub Detail</a><p/>
     
@@ -78,5 +91,55 @@ Real HW SDR experimentation, no truncation, "catastrophic forgetting"
 
 <a href="https://link.springer.com/article/10.1007/s00521-021-06115-2">Improving security of the Internet of Things via RF fingerprinting based device identification system</a><p/>
 
+<pre>
+1. Title Page:
+Project Title, Student Name(s), and Student ID(s)
+
+2. Abstract:
+Brief summary of the project (150-200 words).
+Should include objectives, methods, key findings, and conclusions.
+
+3. Introduction:
+Background and Context: Overview of the problem or topic.
+Objective(s): Clear definition of what the project aims to achieve.
+Scope: Define the boundaries of the work.
+Significance: Why the project is important, particularly in the field of Wireless Network Security.
+
+4. Literature Review:
+Summary of Related Work: Brief discussion of existing solutions, methodologies, or studies.
+Gaps Identified: What gaps or challenges in the literature does your project address?
+
+5. Methodology:
+Approach and Framework: Describe the methodology used to tackle the problem.
+Tools and Technologies: List and explain any software, hardware, or frameworks utilized.
+Data Sources: Mention any datasets, simulations, or experimental setups.
+
+6. Implementation:
+Details of Implementation: Step-by-step explanation of how the solution was developed.
+Diagrams and Code Snippets: Include relevant architecture diagrams, flowcharts, and critical code snippets, if applicable.
+
+7. Results and Analysis:
+Results: Present the outcomes of your project. Use graphs, tables, and figures where necessary.
+Analysis: Explain what the results mean. Compare with expected outcomes or benchmarks.
+Challenges and Limitations: Discuss any issues faced and how they were addressed or any limitations of the project.
+
+8. Discussion:
+Interpretation of Results: Discuss implications, lessons learned, and the broader impact on Wireless Network Security.
+Comparison with Existing Work: How do your results compare with similar studies or approaches?
+
+9. Conclusion:
+Summary of Findings: Recap the major points of the report.
+Future Work: Suggest possible extensions or improvements to the project.
+
+10. References:
+Properly formatted list of all sources cited in the report. Use IEEE or another standard citation style as instructed.
+
+Evaluation Criteria
+Clarity and Organization
+Depth of Analysis
+Technical Accuracy
+Quality of Presentation (Figures, Tables, and Writing Style)
+Proper Referencing
+</pre>
 
 </body></html>
