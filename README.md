@@ -10,7 +10,7 @@ Fall 2024 · Moinul Hossain, PhD
 ## AWS EC2
 
 Ubuntu 24.04  
-g4dn.xlarge - 4 vCPU, 16 GiB memory, GPU (0.53 USD / hour)
+g4dn.xlarge - 4 vCPU, 16 GiB memory, GPU (0.53 USD / hour)  
 100 GiB storage
 
 ## Linux
