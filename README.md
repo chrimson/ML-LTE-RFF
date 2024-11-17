@@ -6,15 +6,17 @@
 ## AWS EC2
 
 Ubuntu 24.04  
-g4dn.xlarge - 4 vCPU, 16 MiB memory, NVIDIA GPU (0.53 USD / hour)
+g4dn.xlarge - 4 vCPU, 16 GiB memory, GPU (0.53 USD / hour)
+100 GiB storage
 
 ## Linux
 
-As root
+As root. Copy TensorFlow inline brackets exactly
 ```
 apt update -y
 apt upgrade -y
 apt install -y python3-pip
+apt remove -y python3-blinker
 pip install -U tensorflow[and-cuda] --root /
 pip install -U scikit-learn --root /
 pip install -U flask --root /
@@ -22,21 +24,23 @@ pip install -U flask --root /
 
 ## NVIDIA CUDA-enabled GPU Driver
 
-Follow NVIDIA instructions to download and install CUDA Toolkit Installer, legacy kernel module flavor of Driver Installer, and cuDNN Base Installer:
+Follow NVIDIA instructions to download and install CUDA Toolkit Installer and _legacy kernel module flavor_ of Driver Installer:
 
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local
 
-https://developer.nvidia.com/cudnn-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local
-
-Be sure to reboot. Then test, which may throw errors, but the resulting list will contain an installed GPU
-
+Be sure to reboot. Then test
 ```
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
 
+Errors will be thrown but ultimately, the resulting list will contain an installed GPU
+```
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+```
+
 ## MATLAB
 
-Be sure MATLAB R2024b is installed with its LTE Toolbox, and has been launched with a one-time password. Instructions found at [matlab.mathworks.com](https://matlab.mathworks.com)  
+Download and install MATLAB R2024b with its LTE Toolbox, and launch it initially with a one-time password. Instructions found at [matlab.mathworks.com](https://matlab.mathworks.com)  
 
 ## Git
 
