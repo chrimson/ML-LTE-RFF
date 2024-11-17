@@ -84,7 +84,7 @@ Repetitive 30, Strength 15% results in confidence of 99% in the correctly guesse
 
 <img src="img/s15r30c99.jpg" width="600">
 
-%nbsp;
+&nbsp;
 
 all.sh result
 

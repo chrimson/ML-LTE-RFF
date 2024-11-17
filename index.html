@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<html><head><title>Machine Learning LTE RF Fingerprinter</title>
-<style>
-table, th, td {
-    border: 1;
-    border-collapse: collapse;
-}
-</style></head>
-    
+<html>
+<head><title>Machine Learning LTE RF Fingerprinter</title></head>
 <body style="font-family:Arial,Helvetica,sans-serif;background-color:#000;color:#fff;">
 
 <h1>Machine Learning LTE RF Fingerprinter</h1>
@@ -14,58 +8,58 @@ table, th, td {
 GMU CYSE 640 Wireless Network Security<p/>
 Fall 2024 · Moinul Hossain, PhD<p/>
 
-<h2>System</h2>
+<h2>Abstract</h2>
 
-On AWS Ubuntu nodes, Kubernetes platform orchestration, Docker containerization<p/>
+This is a study of creating a proof-of-concept system that recognizes RF fingerprints extracted from LTE user equipment with an HTTP service for LTE vendors. 
 
-These containers are interchangeable with base station hardware:<p/>
+<h2>Introduction</h2>
+(structure of study)
+
+<h2>Investigation</h2>
+(includes generation by MATLAB, building neural network, testing the sample prediction)
+
+<h3>Generation of Sample Dataset</h3>
+
+MATLAB CLI script to generate LTE compliant modulated uplink waveform which will include RF fingerprint (RFF) simulating device (UE) connection to Evolved Node Base (eNB base station)<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/chrimson/ML-LTE-RFF/blob/main/src/LTE_Uplink_RMC.m">MATLAB CLI script (.m) to generate LTE compliant modulated uplink waveform</a> which will include RF fingerprint (RFF) then impairments, simulating device (UE) connection to Evolved Node Base (eNB base station)<p/>
+Before demodulation, apply filters and OFDM to extract RFF<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before demodulation, apply filters and OFDM to extract RFF<p/>
+After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC<p/>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After demodulation eNB will also retrieve UE parameters (genuine, cloned or spoofed) like MAC<p/>
-    
-GNU Radio (Python) collect RFF Signal Metadata Format (sigMF)<p/>
+GNU Radio collect RFF Signal Metadata Format (sigMF)<p/>
 
-MongoDB (Golang) to store RFF sigMF, and UE metadata<p/>
+<h3>Building Neural Network</h3>
 
-TensorFlow (C++) to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>&nbsp;<p/>
+TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
+
+<h3>Testing Sample Waveform Prediction</h3>
+(caveats: truncated at 5000 vs 307200, simulated fingerprint to sin/cos)
+
+<h2>Experimentation</h2>
+(graph shows different variances for one waveform, how two fingerprints may differ yet exhibit the same frequency spectrum, tried different values of repetitive and strength ranges)
+
+<h3>Case 1</h3>
+
+<h3>Case 2</h3>
+
+<h3>Case 3</h3>
+
+<h3>Results for Most Ideal Generation Parameters</h3>
+(table, 25 x 20)
 
 
-<h2>Experiment</h2>
-    
-Connect with a defined RFF to our UE<p/>
+<h2>Service System</h2>
 
-Not found, but RFF and UE stored anyway to contribute DL<p/>
+<h3>Architecture</h3>
+(put the python code together, dataset reader, builder, predictor)
 
-Connect again with the following, evaluate results<p/>
-
-<pre>
-    UE         RFF
-    different  different
-    different  same
-    same       different
-    same       same
-</pre><p/>
-
-Also several trials, several RFFs<p/>&nbsp;<p/>
+<h3>Four Use Cases of Predictions</h3>
 
 
 <h2>Resources</h2>
 
 <a href="https://github.com/chrimson/ML-LTE-RFF">GitHub Detail</a><p/>
     
-For download or online with GMU's Campus-Wide License, MATLAB and Simulink <a href="https://matlab.mathworks.com">https://matlab.mathworks.com</a><p/>
-
-GNU Radio <a href="https://www.gnuradio.org">https://www.gnuradio.org</a>. On Ubuntu 24.04<p/>
-<pre>
-    sudo apt install gnuradio
-    gnuradio-companion
-</pre>
-<p/>&nbsp;<p/>
-    
-
 <h2>More References</h2>
 
 <a href="https://repository.library.neu.edu/files/neu:m044c531h/fulltext.pdf">Radio Fingerprinting Using Convolutional Neural Networks</a><p/>
@@ -73,22 +67,6 @@ GNU Radio <a href="https://www.gnuradio.org">https://www.gnuradio.org</a>. On Ub
 <a href="https://ece.northeastern.edu/fac-ece/ioannidis/static/pdf/2018/radio_identification.pdf">Deep Learning Convolutional Neural Networks for Radio Identification</a><p/>
 
 <a href="https://link.springer.com/article/10.1007/s00521-021-06115-2">Improving security of the Internet of Things via RF fingerprinting based device identification system</a><p/>
-
-<a href="https://www.mathworks.com/help/lte/ref/ltewaveformgenerator-app.html?searchHighlight=lte%20impairment&s_tid=srchtitle_support_results_2_lte%20impairment">MATLAB LTE Waveform Generator</a><p/>
-
-<a href="https://www.mathworks.com/company/technical-articles/measuring-the-impact-of-rf-impairments-on-an-lte-system.html?s_tid=srchtitle_support_results_1_lte%20impairment">MATLAB Measuring the Impact of RF Impairments on an LTE Syste</a><p/>
-
-<a href="https://ieeexplore.ieee.org/document/7454387">Performance Evaluation of LTE Radio Fingerprinting using Field Measurements</a><p/>
-
-<a href="https://ieeexplore.ieee.org/document/9685067">LTE Device Identification Based on RF Fingerprint with Multi-Channel Convolutional Neural Network</a><p/>
-
-<a href="https://ieeexplore.ieee.org/abstract/document/7459984">Performance evaluation of LTE radio fingerprint positioning with timing advancing</a><p/>
-
-<a href="https://arxiv.org/pdf/2301.01446">Radio Frequency Fingerprints Extraction for LTE-V2X: A Channel Estimation Based Methodology</a><p/>
-
-<a href="https://jyx.jyu.fi/handle/123456789/51204#">RF fingerprinting for user locationing in LTE/WLAN networks</a><p/>
-
-<a href="http://drsr.daiict.ac.in/handle/123456789/1055">Enhanced Device FingerPrinting in 4G LTE Communication Networks</a><p/>&nbsp;<p/>
 
 
 <h2>Documentation</h2>
@@ -98,19 +76,7 @@ GNU Radio <a href="https://www.gnuradio.org">https://www.gnuradio.org</a>. On Ub
 <a href="https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalReport.pdf">CYSE640_BradChris_ProjectProposalReport.pdf</a><p/>&nbsp;<p/>
 
 
-(broken links below are placeholders for now)<p/>
-    
-<a href="https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectFinalPresentation.pdf">CYSE640_BradChris_ProjectFinalPresentation.pdf</a><p/>
-
-<a href="https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectFinalReport.pdf">CYSE640_BradChris_ProjectFinalReport.pdf</a><p/>&nbsp;<p/>
-
-
-<h2>Notes</h2>
-
-<a href="https://github.com/chrimson/ML-LTE-RFF/archive.md">Archive</a><p/>&nbsp;<p/>
-
-
 <h2>License</h2>
-
 <a href="https://github.com/chrimson/ML-LTE-RFF/blob/main/LICENSE">MIT</a>
+
 </body></html>
