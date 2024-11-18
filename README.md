@@ -7,13 +7,15 @@ Fall 2024 · Moinul Hossain, PhD
 [CYSE640_BradChris_ProjectProposalReport.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalReport.pdf)  
 [CYSE640_BradChris_ProjectProposalPresentation.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalPresentation.pdf)
 
-## AWS EC2
+## Infrastructure Setup
+
+### AWS EC2
 
 Ubuntu 24.04  
 g4dn.xlarge - 4 vCPU, 16 GiB memory, GPU (0.53 USD / hour)  
 100 GiB storage
 
-## Linux
+### Linux
 
 As root. Copy TensorFlow inline brackets exactly
 ```
@@ -26,7 +28,7 @@ pip install -U scikit-learn --root /
 pip install -U flask --root /
 ```
 
-## NVIDIA CUDA-enabled GPU Driver
+### NVIDIA CUDA-enabled GPU Driver
 
 Follow NVIDIA instructions to download and install CUDA Toolkit Installer and _legacy kernel module flavor_ of Driver Installer:
 
@@ -42,11 +44,11 @@ Errors will be thrown but ultimately, the resulting list will contain an install
 [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
 
-## MATLAB
+### MATLAB
 
 Download and install MATLAB R2024b with its LTE Toolbox, and launch it initially with a one-time password. Instructions found at [matlab.mathworks.com](https://matlab.mathworks.com)  
 
-## Git
+### Git
 
 Clone this repository
 ```
