@@ -41,4 +41,10 @@ vncserver :1
 ```
 export XAUTHORITY=/home/ubuntu/.Xauthority
 firefox
----
+```
+
+https://matlab.mathworks.com
+
+```
+sudo ./install
+```
