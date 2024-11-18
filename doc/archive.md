@@ -72,6 +72,15 @@ RF fingerprinting for user locationing in LTE/WLAN networks [https://jyx.jyu.fi/
 Enhanced Device FingerPrinting in 4G LTE Communication Networks [http://drsr.daiict.ac.in/handle/123456789/1055](http://drsr.daiict.ac.in/handle/123456789/1055)
 
 
+<pre>
+Evaluation Criteria
+Clarity and Organization
+Depth of Analysis
+Technical Accuracy
+Quality of Presentation (Figures, Tables, and Writing Style)
+Proper Referencing
+</pre>
+
 
 
 The goal of collecting data from devices that employ Long-Term Evolution (LTE) presents challenges with the protection of confidentiality and authentication of integrity
