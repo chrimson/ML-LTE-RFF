@@ -106,10 +106,10 @@ Numbered scripts may be used to invoke steps
 Nested loops that test a range of repetitive factors by a range of strengths  
 `./all.sh`
 
-To run in the background without terminating if logging out  
+To run in the background without terminating even if logging out  
 `nohup ./all.sh > 20241108_0221_all.log &`
 
-And viewing that log as it is generated  
+And viewing that log as it is generated. Ctrl-C only terminates the view, not the process  
 `tail -fn+0 20241108_0221_all.log`
 
 To clear all generated files that Git does not control, including dataset or .keras  
