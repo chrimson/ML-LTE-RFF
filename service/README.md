@@ -1,6 +1,6 @@
 # Machine Learning LTE RF Fingerprinter
 
-## Service Application
+## Service System
 
 Copy generated RFF Waveforms (RWF) from the dataset of __s1_LTE_RWF_dataset.m__
 
@@ -9,7 +9,7 @@ mkdir dataset
 cp ../25x20_ue_rwf_data/* dataset/
 ```
 
-Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait
+(Optional) Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait for servive to rebuild Keras neural network
 
 ```
 cp ../25x20_rwf_cnn.keras rwf.keras
@@ -19,7 +19,7 @@ cp ../25x20_mac_label_enc.pkl rwf.pkl
 Launch service in one terminal
 
 ```
-python service.py
+python ml-lte-rff-svc.py
 ```
 
 In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc. Observe flag directory
@@ -29,7 +29,7 @@ cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
 cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
 cp ../25x20_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
 
-Chris@MULLET:~/MULLET/src/LteRffSvc$ ls -lR flag/
+ls -lR flag/
 flag/:
 33-XX-XX-XX-XX-XX_33-04-E7-92-52-BD
 flag/33-XX-XX-XX-XX-XX_33-04-E7-92-52-BD:
