@@ -2,10 +2,14 @@
 
 ## MATLAB Installation Notes
 
+root
 ```
 apt install -y ubuntu-desktop tightvncserver  
 apt install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal xterm gcc
+```
 
+user
+```
 vncserver :1  
 vim ~/.vnc/xstartup  
 ```
