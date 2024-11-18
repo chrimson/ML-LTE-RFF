@@ -18,8 +18,8 @@ Brief summary of the project (150-200 words). 175:<p/>
 This is a study of creating a proof-of-concept system that recognizes RF fingerprints (RFF) extracted from LTE user equipment (UE) uplinks with a web service.
 It required researching properties of the LTE standard, and generating random UE uplink signals each with a sample set of minor variances exhibiting a characteristic RFF.
 A machine learning neural network was built from the dataset of UE signals and their variances, into which a simulated test target LTE waveform with RFF would be applied.
-From this simulation, attributes for a feasible fingerprint were determined for then building a system to test and demonstrate.
-The service is able to accept a submitted LTE compliant uplink signal with an unknown RFF embedded, than compare its likeness to waveforms already in the dataset.
+From this simulation, attributes for a feasible fingerprint were determined, to then build a system to test and demonstrate.
+The service is able to accept a submitted LTE compliant uplink signal with an unknown RFF embedded, then compare its likeness to waveforms already in the dataset.
 The system decides whether to update its dataset or flag the submitted signal, depending on if the RFF in question strengthens evidence of matching or identities conflict.
 Finally, these decisions will be discussed and analyzed.
 
@@ -35,6 +35,47 @@ There are an increasing number of ways to spoof device MAC address, IP address o
 With Radio Frequency (RF) Fingerprinting, a unique signal impairment emitted by the device exists due to imperfections in the hardware when it is created.
 The specific device attempting to connect to the base station can be determined, and authenticating with RF fingerprint can be quick and secure.
 No method to spoof a RF fingerprint is currently known to exist, thus allowing each device to be cataloged and identified off this attribute.<p/>
+
+Address 6.1 Research Challenges by building a standard dataset that is continually updated<p/>
+
+Address challenge of hardware degradation, updating properties and still adjusting with deep learning<p/>
+
+In the potentially additional interest of flagging malicious devices by only their fingerprints, as all other higher-level (logic, MAC addresses) can be altered
+Impact of distance can be addressed with sensitivity of detection hardware
+
+Apply large number of simulated devices to entire system's algorithm, showing how built dataset improves identification as more devices contribute
+
+Our proposed solution is further development into data for convolutional neural
+networks. We hope to address the proposal in section 7, Research Challenges, of [2] where the
+authors suggest building a standard dataset benchmarking training time and classification
+accuracy. We plan on implementing that with cloud storage that is continually updated and
+potentially analyzed for information. Like the original researchers, we will continue to employ
+TensorFlow, the open-source software library for computing the convolutional neural network
+[3].<p/>
+
+Additionally, we will look into addressing the challenge of hardware degradation. Since
+this will be a simulated model, we will be updating properties for each device and seeing how
+the deep learning model reacts to the new information. In the potentially additional interest of
+flagging malicious devices by only their fingerprints, as all other higher-level (logic, MAC
+addresses) can be altered. Proposing a solution where the base station identifies a connecting
+device based solely off their RF fingerprint. This is due to the increasing commonality of logic,
+IP addresses and MAC addresses being able to be altered. We hope to address the impact of
+distance affecting the success of identification by increasing the sensitivity of the detection
+hardware. While this is not always viable, since we are simulating it, we can change the
+sensitivity and make the receiver know what it is looking for. We could also potentially increase
+the power of the ‘smartphones’ that are simulated, to see how far the signal can be pushed in
+an ideal scenario.<p/>
+
+Our evaluation plan is to apply a large number of simulated devices to the entire
+system's algorithm, showing how the built dataset improves identification, as more devices
+contribute. This includes having more than one device try authenticating against the base
+station based off of their RF fingerprint.
+A couple novel ideas for authentication and experimentations include; Having everything
+cataloged by the base station for a device be incorrect except the fingerprint, have everything
+cataloged be correct and the fingerprint be incorrect, and have everything be correct / incorrect
+for authentication. It is undecided how feasible some of these scenarios are. The effectiveness
+will be considered if the device is properly authenticated or not, with there being 2 success
+scenarios and 2 intended failure scenarios.<p/>
 
 [Structure of ML LTE RFF report]
 
@@ -163,6 +204,7 @@ Summary of Findings: Recap the major points of the report.<br/>
     As this study focuses on the essential functions of a minimal prototype, full-scope security hardening should still be performed (HTTPS, vendor authentication, etc.)
     Real HW SDR experimentation, no truncation, "catastrophic forgetting"<br/>
     HTTP port can be given a special port for secure standardization<br/>
+    Cloud storage, big data<br/>    
     Ultimately, this kind of CNN ML can be extended to any wireless platform. LTE was only applied here to demonstrate the principle of RF Fingerprint recognition.
 </div>
 
