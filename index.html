@@ -38,7 +38,11 @@ No method to spoof a RF fingerprint is currently known to exist, thus allowing e
 
 Address 6.1 Research Challenges by building a standard dataset that is continually updated<p/>
 
-Address challenge of hardware degradation, updating properties and still adjusting with deep learning<p/>
+Address challenge of hardware degradation, updating properties and still adjusting with deep learning
+Hardware degredation and updating properties can have a significant impact on the deep learning models created for fingerprint identification.
+With hardware degredation potentially having the fingerprint a device produces, become similar to another fingerprinted device or a too dissimilar to the original one used in the model.
+This can cause problems in authentication, including potential spoofing or access denial.  Additionally, updating properties like changing out the CPU inside a computer,
+can cause the produced fingerprint to be changed as well.  This would require the model to be then be adjusted to include the new fingerprint and the old removed.<p/>
 
 In the potentially additional interest of flagging malicious devices by only their fingerprints, as all other higher-level (logic, MAC addresses) can be altered
 Impact of distance can be addressed with sensitivity of detection hardware
