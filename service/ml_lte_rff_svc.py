@@ -25,7 +25,7 @@ FLAG                = './flag'
 CHECK_STAGE_SECONDS = 5
 SAME_MACS_CMPR_RWF  = 0.50
 DIFF_MACS_CMPR_RWF  = 0.80
-EPOCHS              = 10
+EPOCHS              = 12
 
 def service():
     # Read dataset

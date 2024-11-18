@@ -80,7 +80,7 @@ model.add(Dense(units=54, activation='softmax'))
 
 print('Compile, train, save', flush=True)
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
-history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=10)
+history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=12)
 model.save(cnn_file)
 
 print('Done', flush=True)

@@ -1,5 +1,5 @@
 from logger import log, lug, leg
-import service as s
+import ml_lte_rff_svc as s
 
 import joblib
 from keras.callbacks import Callback

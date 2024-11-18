@@ -6,28 +6,28 @@ Copy generated RFF Waveforms (RWF) from the dataset of __s1_LTE_RWF_dataset.m__
 
 ```
 mkdir dataset
-cp ../25x20_ue_rwf_data/* dataset/
+cp ../generate/25x15_ue_rwf_data/* dataset/
 ```
 
 (Optional) Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait for servive to rebuild Keras neural network
 
 ```
-cp ../25x20_rwf_cnn.keras rwf.keras
-cp ../25x20_mac_label_enc.pkl rwf.pkl
+cp ../generate/25x15_rwf_cnn.keras rwf.keras
+cp ../generate/25x15_mac_label_enc.pkl rwf.pkl
 ```
 
 Launch service in one terminal
 
 ```
-python ml-lte-rff-svc.py
+python3 ml_lte_rff_svc.py 2>/dev/null
 ```
 
 In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc. Observe flag directory
 
 ```
-cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
-cp ../25x20_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
-cp ../25x20_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
+cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
+cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
+cp ../generate/25x15_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
 
 ls -lR flag/
 flag/:
@@ -61,16 +61,12 @@ Observe service operations in the first terminal
 2024-11-13 04:29:19.194691 Claim 4A-2C-09-12-C0-1C Probability 43.32%
 2024-11-13 04:29:19.195369 Same MACs, RWF < 50% Strengthen
 2024-11-13 04:29:19.307411 Build and train
-Epoch 1/10
-125/125 - 69s - 555ms/step - accuracy: 0.0160 - loss: 4.1045 - val_accuracy: 0.0140 - val_loss: 3.9546
-Epoch 2/10
-125/125 - 81s - 645ms/step - accuracy: 0.0185 - loss: 3.9534 - val_accuracy: 0.0140 - val_loss: 3.9422
+2024-11-13 04:29:19.307411 Epoch 1/10 Accuracy 1.60%
+2024-11-13 04:29:22.657361 Epoch 2/10 Accuracy 1.85%
 ...
-Epoch 9/10
-125/125 - 66s - 532ms/step - accuracy: 0.0205 - loss: 3.8623 - val_accuracy: 0.0439 - val_loss: 3.8085
-Epoch 10/10
-125/125 - 84s - 670ms/step - accuracy: 0.0375 - loss: 3.6918 - val_accuracy: 0.0499 - val_loss: 3.6574
-2024-11-13 04:41:18.055316 Done
+2024-11-13 04:29:31.378768 Epoch 9/20 Accuracy 55.85%
+2024-11-13 04:29:33.225789 Epoch 10/10 Accuracy 91.05%
+2024-11-13 04:29:36.055316 Done
 ```
 
 After rebuilding the model with new data, service predictions actually seemed to worsen. MAC encoding was changed from inline to unique NumPy array, and that seemed to have fixed it
