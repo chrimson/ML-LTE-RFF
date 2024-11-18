@@ -44,10 +44,15 @@ With hardware degredation potentially having the fingerprint a device produces, 
 This can cause problems in authentication, including potential spoofing or access denial.  Additionally, updating properties like changing out the CPU inside a computer,
 can cause the produced fingerprint to be changed as well.  This would require the model to be then be adjusted to include the new fingerprint and the old removed.<p/>
 
-In the potentially additional interest of flagging malicious devices by only their fingerprints, as all other higher-level (logic, MAC addresses) can be altered
-Impact of distance can be addressed with sensitivity of detection hardware
+In the potentially additional interest of flagging malicious devices by only their fingerprints, as all other higher-level (logic, MAC addresses) can be altered.
+This deep learning algorithm can take a wavelength, and based off of the fingerprints supplied during the training process, pick which one it would resemble most.
+With the algorithm having the ability to be changed to include a message of rejection, if the fingerprint does not match any in the database close enough, for example
+under 80% similarity.  The impact of distance effecting the degredation of the wavelength, can be addressed with sensitivity of detection hardware.  This would allow
+the wavelength to be properly captured and assessed.
 
-Apply large number of simulated devices to entire system's algorithm, showing how built dataset improves identification as more devices contribute
+Our algorithm involves applying a large number of simulated devices to the database.  However, these simulated devices can be swapped for actual devices
+if they are available.  This dataset improves the identification of devices as the number of devices, and number of sampled wavelengths per device is added.  Meaning,
+that that the algorithm can identify which device is attempting to connected with a higher accuracy if the number of samples for said wavelength is increased.
 
 Our proposed solution is further development into data for convolutional neural
 networks. We hope to address the proposal in section 7, Research Challenges, of [2] where the
