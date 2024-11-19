@@ -59,6 +59,12 @@ gnuradio-companion
 
 Improving security of the Internet of Things via RF fingerprinting based device identification system [https://link.springer.com/article/10.1007/s00521-021-06115-2](https://link.springer.com/article/10.1007/s00521-021-06115-2)
 
+https://repository.library.northeastern.edu/downloads/neu:4f24jx382?datastream_id=content
+
+https://github.com/sigmf/SigMF
+
+https://www.tensorflow.org/guide/keras/writing_your_own_callbacks
+
 Performance Evaluation of LTE Radio Fingerprinting using Field Measurements [https://ieeexplore.ieee.org/document/7454387](https://ieeexplore.ieee.org/document/7454387)
 
 LTE Device Identification Based on RF Fingerprint with Multi-Channel Convolutional Neural Network [https://ieeexplore.ieee.org/document/9685067](https://ieeexplore.ieee.org/document/9685067)
