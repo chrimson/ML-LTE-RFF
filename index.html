@@ -122,8 +122,11 @@ MATLAB was installed, as well as TensorFlow and Flask Python libraries for the a
 
 MATLAB was used only to generate LTE waveforms for simulation and test. While MATLAB has functions for machine learning,
 Python was used to build the neural network and test a case against it due to TensorFlow's open-source flexibility.
-The Python components were then integrated into a web service that vendors would be able to use for authentication, but also contribution as well.
+The Python components were then integrated into a web service that vendors would be able to use for authentication, but also contribution as well.<p/>
 
+For test and demonstration, a similar instance was then stood up with also the NVIDIA CUDA-enabled GPU and drivers specifically for deep neural networks,
+and training significantly performed better. Where training 10 epochs without the GPU would take approximately 10 minutes,
+the same process with the GPU would take a mere 1 minute.
 
 <h2>4. Implementation</h2>
 Details of Implementation: Step-by-step explanation of how the solution was developed.<br/>
