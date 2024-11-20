@@ -187,9 +187,47 @@ Challenges and Limitations: Discuss any issues faced and how they were addressed
 <div style="margin-left: 32px">
     <h3>5.1. Behavior</h3>
     <h3>5.2. Illustration</h3>
+
+    Eight variants by 5% of one RF Fingerprint
+
+    <img src="generate/img/8var1rff.jpg" width="400">
+    
+    Two different RFFs. Waveform with and without an applied RFF. Their corresponding Spectrum Analyzers still match
+    
+    <img src="generate/img/1var2rff2ts2sa.jpg" width="400">
+    
+    Repetitive 15, Strength 15% results in confidence of 2% in the incorrectly guessed UE match
+    
+    <img src="generate/img/s15r15c02x.jpg" width="400">
+    
+    Repetitive 30, Strength 20% results in confidence of 90% in the correctly guessed UE match
+    
+    <img src="generate/img/s20r30c90.jpg" width="400">
+    
+    Repetitive 30, Strength 15% results in confidence of 99% in the correctly guessed UE match
+    
+    <img src="generate/img/s15r30c99.jpg" width="400">
+
     <h3>5.3. Initial Trials</h3>
+
     <h3>5.4. Results for Most Ideal Generation Parameters</h3>
-    (table, 25 x 20)
+    all.sh result
+<pre>
+                   repetition
+                     10    15    20    25    30    35
+              .10   0.33x 0.02x 0.04x 0.03x 0.02x 0.02x
+    
+              .15   0.02x 0.02x 0.02x 0.02x 0.57  0.09x
+    strength
+              .20   0.02x 0.22x 0.59  0.99  0.99  0.02x
+    
+              .25   0.99  0.99  0.99  0.95  0.12x 0.99
+    
+              .30   0.99  0.99  0.99  0.99  0.99  0.99
+    
+              .35   0.70  0.99  0.99  0.99  0.15x 0.02x
+</pre>    
+    x denotes a wrong guess
 
     <h3>5.5. Experimentation</h3>
     <h3>5.6. Observations</h3>
