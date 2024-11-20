@@ -2,13 +2,15 @@
 
 ## MATLAB Installation Notes
 
-root
+This is mostly instructions for installing VNC so the GUI-only MATLAB installer can be run
+
+As root:
 ```
 apt install -y ubuntu-desktop tightvncserver  
 apt install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal xterm gcc
 ```
 
-user
+As user:
 ```
 vncserver :1  
 vim ~/.vnc/xstartup  
@@ -43,8 +45,11 @@ export XAUTHORITY=/home/ubuntu/.Xauthority
 firefox
 ```
 
-https://matlab.mathworks.com
+Log into https://matlab.mathworks.com and download installer
+
 
 ```
 sudo ./install
 ```
+
+Include the LTE Toolkit and any of its requirements, and launch it initially with a one-time password

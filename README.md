@@ -46,7 +46,7 @@ Errors will be thrown but ultimately, the resulting list will contain an install
 
 ### MATLAB
 
-Download and install MATLAB R2024b with its LTE Toolbox, and launch it initially with a one-time password. Instructions found at [matlab.mathworks.com](https://matlab.mathworks.com)  
+Download and install MATLAB R2024b with its LTE Toolbox, and launch it initially with a one-time password. Instructions found at [docs/matlab_auth.md](docs/matlab_auth.md)  
 
 ### Git
 
