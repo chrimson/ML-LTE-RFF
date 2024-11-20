@@ -147,7 +147,7 @@ Python is used so that the ML power and code flexibility of open-sourced TensorF
     Model predicts the target RWF, decodes its associated label and finds the corresponding probability<p/>
 
     (caveats: truncated at 5000 vs 307200, simulated fingerprint to sin/cos)  *This is to avoid overflow when assessing the
-    simulated waveforms
+    and creating the simulated waveforms
 
     <h3>3.4 Integrating Components for Service System</h3>
     TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
@@ -201,7 +201,11 @@ Social, privacy, legal implications
 
 <div style="margin-left: 32px">
     <h3>6.1. Assumptions</h3>
-    Real RF Fingerprint characteristics
+    Real RF Fingerprint characteristics can be exchanged for the simulated ones created in the provided code.  Then these characteristics
+    can be assessed and used to train the model on what to look for, to determine proper authentication parameters.  Additionally, the simulated
+    waveforms can be swapped out for captured ones and the model to be trained on those as well.  With other parameters being able to be spoofed,
+    like an IP address for a device.  Authenticating based upon the IP address, MAC address or other parameter is no longer sufficient.  Having
+    another way of authentication that currentlty has no known spoofing ability, can pave a new foundation for security.
 
     <h3>6.2. Real World Application</h3>
 </div>
