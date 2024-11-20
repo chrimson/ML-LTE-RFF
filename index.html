@@ -133,9 +133,10 @@ Python is used so that the ML power and code flexibility of open-sourced TensorF
     They can be illustrated on the MATLAB GUI by uncommenting plot, timescopes and spectrum analyzers with and without the RFFs applied.
 
     <h3>3.2. Building Neural Network</h3>
-    TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
+    TensorFlow is used to apply RFF against the created Convolutional Neural Network.  It then
+    authenticates the RFF, based upon the RWF provided.  It then compares the RFF to the stored UE and classifies the indications.<p/>
 
-    RWFs are applied to build the Convolutional Neural Network (CNN).
+    RWFs are applied to build and train the Convolutional Neural Network (CNN).
 
     <h3>3.3. Testing Sample Waveform Prediction</h3>
     A set of RWF characteristic parameters from ue_rwf_parms.asc may be chosen for variables A, B, C, D, J and K and passed into the MATLAB script.
@@ -145,7 +146,8 @@ Python is used so that the ML power and code flexibility of open-sourced TensorF
 
     Model predicts the target RWF, decodes its associated label and finds the corresponding probability<p/>
 
-    (caveats: truncated at 5000 vs 307200, simulated fingerprint to sin/cos)
+    (caveats: truncated at 5000 vs 307200, simulated fingerprint to sin/cos)  *This is to avoid overflow when assessing the
+    simulated waveforms
 
     <h3>3.4 Integrating Components for Service System</h3>
     TensorFlow to apply RFF against Convolutional Neural Network, authenticating RFF, comparing to stored UE, classifying indications<p/>
