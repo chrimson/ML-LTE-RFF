@@ -17,14 +17,13 @@ def read(dataset):
         mac_dir = os.path.join(dataset, mac_id)
         file_list = os.listdir(mac_dir)
         for rwf_file in file_list:
+            rwf_cmplx = np.fromfile(os.path.join(dataset, mac_id, rwf_file))
             rwf = []
-            with open(os.path.join(dataset, mac_id, rwf_file)) as file:
-               for line in file:
-                   cpx = re.sub('[+ij]', '', line).split()
-                   real = float(cpx[0])
-                   imag = float(cpx[1])
-                   mag = max(abs(real), abs(imag), mag)
-                   rwf.append([real, imag])
+            for num_cmplx in rwf_cmplx:
+               real = num_cmplx.real
+               imag = num_cmplx.imag
+               mag = max(abs(real), abs(imag), mag)
+               rwf.append([real, imag])
             rwfs_l.append(rwf)
             macs_l.append(mac_id)
         log(f'  Read {mac_id} {len(file_list)} Variants')

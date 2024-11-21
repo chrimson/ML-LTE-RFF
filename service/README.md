@@ -2,21 +2,21 @@
 
 ## Service System
 
-Copy generated RFF Waveforms (RWF) from the dataset of __s1_LTE_RWF_dataset.m__
+Copy generated RFF Waveforms (RWF) in complex number format from the dataset of __s1_LTE_RWF_dataset.m__
 
 ```
 mkdir dataset
-cp ../generate/25x15_ue_rwf_data/* dataset/
+cp ../generate/25x15_ue_rwf_data_cmplx/* dataset/
 ```
 
-(Optional) Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait for servive to rebuild Keras neural network
+(Optional) Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait for service to rebuild Keras neural network
 
 ```
 cp ../generate/25x15_rwf_cnn.keras rwf.keras
 cp ../generate/25x15_mac_label_enc.pkl rwf.pkl
 ```
 
-Launch service in one terminal
+Launch service in one terminal, redirecting annoying warnings
 
 ```
 python3 ml_lte_rff_svc.py 2>/dev/null

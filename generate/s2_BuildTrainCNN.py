@@ -21,12 +21,15 @@ stg = sys.argv[2]
 norm_file = f'{rep}x{stg}_rwf_cnn_norm.asc'
 cnn_file = f'{rep}x{stg}_rwf_cnn.keras'
 data_dir = f'{rep}x{stg}_ue_rwf_data'
+data_dir_cmplx = f'{rep}x{stg}_ue_rwf_data_cmplx'
 trunc = 5000
 rwfs = []
 macs = []
 
 print('Build lists of RWFs and their MAC IDs from dataset', flush=True)
 dir_list = os.listdir(data_dir)
+if not os.path.isdir(data_dir_cmplx):
+  os.mkdir(data_dir_cmplx)
 # Keep largest magnitude for normalization
 mag = 0
 for mac_id in dir_list:
@@ -36,6 +39,7 @@ for mac_id in dir_list:
   for rwf_file in file_list:
     print(rwf_file, end=' ', flush=True)
     rwf = []
+    cmplx = []
     with open(os.path.join(data_dir, mac_id, rwf_file)) as file:
       for line in file:
         cpx = re.sub('[+ij]', '', line).split()
@@ -43,6 +47,11 @@ for mac_id in dir_list:
         imag = float(cpx[1])
         mag = max(abs(real), abs(imag), mag)
         rwf.append([real, imag])
+        cmplx.append(complex(real, imag))
+      cmplx_np = np.array(cmplx)
+      if not os.path.isdir(os.path.join(data_dir_cmplx, mac_id)):
+        os.mkdir(os.path.join(data_dir_cmplx, mac_id))
+      cmplx_np.tofile(os.path.join(data_dir_cmplx, mac_id, rwf_file))
     rwfs.append(rwf)
     macs.append(mac_id)
   print(flush=True)

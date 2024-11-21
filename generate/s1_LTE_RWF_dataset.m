@@ -5,7 +5,7 @@ function [] = s1_LTE_RWF_dataset(rep, str)
     trunc    = 5000          % Adjusted length of waveform for development (5000 for now)
     dev      = 0.05          % Deviation from fingerprint parameters (0.05 is +/-0.025)
     num_rwf  = 50            % Number of RFF Waveforms (RWF)
-    num_var  = 50            % Number of Variants for each RWF
+    num_var_base  = 30       % Base of Random Number of Variants for each RWF
 
     data = sprintf('%dx%d_ue_rwf_data', rep, str)  % Dataset directory
     rng(61223)               % Random generator seed
@@ -55,7 +55,7 @@ function [] = s1_LTE_RWF_dataset(rep, str)
         end
 
         fprintf('\nRFF Waveform %d, MAC %s\n', rwf_iter, mac);
-        for variant = 1:num_var
+        for variant = 1:(num_var_base+int8(rand*30))
             fprintf('Variant %d\n', variant);
             rff = 1 + ...
                 (base+rand*dev)*J*sin((base+rand*dev)*A*t + (base+rand*dev)*B) + ...
