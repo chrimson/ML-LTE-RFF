@@ -15,6 +15,7 @@ Strength percentage of RF Fingerprint (e.g. 15)
 __Outputs__
 
 *25x15_ue_rwf_data* Dataset directory of different devices given by MAC addresses, each with RWFs in numerically named files  
+*25x15_ue_rwf_data_cmplx* A similar dataset, only in complex SigMF NumPy format as numerically named files, for use with the web service  
 *25x15_ue_rwf_parms.asc* Dataset's MAC addresses and the associated characteristic parameters for their RWF
 
 ### s2_BuildTrainCNN.py
