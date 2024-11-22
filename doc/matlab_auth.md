@@ -46,7 +46,7 @@ export XAUTHORITY=/home/ubuntu/.Xauthority
 firefox
 ```
 
-Log into https://matlab.mathworks.com and download installer
+Log into https://matlab.mathworks.com and download installer. Assumes an account has been registered
 
 
 ```
