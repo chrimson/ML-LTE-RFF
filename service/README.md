@@ -9,20 +9,13 @@ mkdir dataset
 cp ../generate/25x15_ue_rwf_data/* dataset/
 ```
 
-(Optional) Copy saved model and encoded labels from __s2_BuildTrainCNN.py__ if you don't want to wait for service to rebuild Keras neural network
-
-```
-cp ../generate/25x15_rwf_cnn.keras rwf.keras
-cp ../generate/25x15_mac_label_enc.pkl rwf.pkl
-```
-
 Launch service in one terminal, redirecting annoying warnings
 
 ```
 python3 ml_lte_rff_svc.py 2>/dev/null
 ```
 
-In a different terminal, copy indexed RWF to current directory as MAC address, play with different MAC addresses, etc
+In a different terminal, copy indexed RWF to current directory as MAC address, play with different MAC addresses, etc.
 
 ```
 cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0001 33-XX-XX-XX-XX-XX
@@ -83,8 +76,6 @@ After rebuilding the model with new data, service predictions actually seemed to
 Was able to accelerate system with TensorFlow GPU engine on suitable machine AWS NVIDIA CUDA-enabled GPU
 
 ## To Do
-
-Accept submissions of SigMF
 
 Restore applicable impairments
 

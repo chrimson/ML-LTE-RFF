@@ -3,7 +3,9 @@ import warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 warnings.filterwarnings("ignore")
 
-import tensorflow as tf 
+import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
 from keras.models import Sequential
 from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
 from sklearn.preprocessing import LabelEncoder
@@ -18,6 +20,7 @@ print("TensorFlow", tf.__version__, flush=True)
 rep = sys.argv[1]
 stg = sys.argv[2]
 
+EPOCHS = 12
 norm_file = f'{rep}x{stg}_rwf_cnn_norm.asc'
 cnn_file = f'{rep}x{stg}_rwf_cnn.keras'
 data_dir = f'{rep}x{stg}_ue_rwf_data'
@@ -51,7 +54,8 @@ for mac_id in dir_list:
       cmplx_np = np.array(cmplx)
       if not os.path.isdir(os.path.join(data_dir_cmplx, mac_id)):
         os.mkdir(os.path.join(data_dir_cmplx, mac_id))
-      cmplx_np.tofile(os.path.join(data_dir_cmplx, mac_id, rwf_file))
+      with open(os.path.join(data_dir_cmplx, mac_id, rwf_file), 'wb') as f:
+        np.save(f, cmplx_np)
     rwfs.append(rwf)
     macs.append(mac_id)
   print(flush=True)
@@ -89,7 +93,7 @@ model.add(Dense(units=54, activation='softmax'))
 
 print('Compile, train, save', flush=True)
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
-history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=12)
+history = model.fit(RWFsh, MACsh, validation_split=0.2, batch_size=16, epochs=EPOCHS)
 model.save(cnn_file)
 
 print('Done', flush=True)

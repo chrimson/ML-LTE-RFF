@@ -26,7 +26,7 @@ STAGE               = './stage'
 FLAG                = './flag'
 SAME_MACS_CMPR_RWF  = 0.50
 DIFF_MACS_CMPR_RWF  = 0.80
-EPOCHS              = 3
+EPOCHS              = 12
 
 svc = Flask(__name__)
 svc.logger.setLevel(logging.INFO)

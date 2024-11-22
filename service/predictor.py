@@ -1,17 +1,15 @@
-import re
 import numpy as np
 
 def predict(svc, model, le, stage, claim_mac):
     svc.logger.info('Import target RWF from stage')
     rwf_l = []
     mag = 1e-10
-    with open(f'{stage}/{claim_mac}', 'r') as file:
-        for line in file:
-            cpx = re.sub('[+ij]', '', line).split()
-            real = float(cpx[0])
-            imag = float(cpx[1])
-            mag = max(abs(real), abs(imag), mag)
-            rwf_l.append([real, imag])
+    rwf_cmplx = np.load(f'{stage}/{claim_mac}')
+    for num_cmplx in rwf_cmplx:
+       real = num_cmplx.real
+       imag = num_cmplx.imag
+       mag = max(abs(real), abs(imag), mag)
+       rwf_l.append([real, imag])
     
     # svc.logger.info('Convert list of one target RWF to NumPy array')
     norm = 0.5 / mag
