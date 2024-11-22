@@ -22,13 +22,22 @@ Launch service in one terminal, redirecting annoying warnings
 python3 ml_lte_rff_svc.py 2>/dev/null
 ```
 
-In a different terminal, copy RWFs to staging directory, play with different MAC addresses, etc. Observe flag directory
+In a different terminal, copy indexed RWF to current directory as MAC address, play with different MAC addresses, etc
 
 ```
-cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0001 stage/33-XX-XX-XX-XX-XX
-cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0046 stage/33-04-E7-92-52-BD
-cp ../generate/25x15_ue_rwf_data/4A-2C-09-12-C0-1C/0024 stage/4A-2C-09-12-C0-1C
+cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0001 33-XX-XX-XX-XX-XX
+cp ../generate/25x15_ue_rwf_data/33-04-E7-92-52-BD/0046 33-04-E7-92-52-BD
+cp ../generate/25x15_ue_rwf_data/4A-2C-09-12-C0-1C/0024 4A-2C-09-12-C0-1C
+```
 
+Submit RWF
+
+```
+ curl -H "Content-Type: multipart/form-data" -F "rwf=@33-04-E7-92-52-BD" http://52.20.245.57:64024
+```
+
+Observe flagged RWFs in the first terminal
+```
 ls -lR flag/
 flag/:
 33-XX-XX-XX-XX-XX_33-04-E7-92-52-BD
@@ -75,7 +84,7 @@ Was able to accelerate system with TensorFlow GPU engine on suitable machine AWS
 
 ## To Do
 
-REST Web Service API, accept submissions of SigMF
+Accept submissions of SigMF
 
 Restore applicable impairments
 
