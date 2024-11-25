@@ -70,10 +70,6 @@ Observe operations of the running service
 2024-11-13 04:29:36.055316 Done
 ```
 
-After rebuilding the model with new data, service predictions actually seemed to worsen. MAC encoding was changed from inline to unique NumPy array, and that seemed to have fixed it
-
-Was able to accelerate system with TensorFlow GPU engine on suitable machine AWS NVIDIA CUDA-enabled GPU
-
 ## To Do
 
 Restore applicable impairments
