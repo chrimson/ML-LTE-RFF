@@ -4,6 +4,9 @@ GMU CYSE 640 Wireless Network Security
 Fall 2024 · Moinul Hossain, PhD  
 [chrimson.github.io/ML-LTE-RFF](https://chrimson.github.io/ML-LTE-RFF)  
 
+[DRAFT Google Docs Report](https://docs.google.com/document/d/1mlsd07kRbTbVgw_j96UPIAueAYd6eIsNKaPmCONiCx8)  
+[DRAFT Google Slides Presentation](https://docs.google.com/presentation/d/1FoltBaY_smN0PgRWyYAG9QK4H7YCHjpGcqRGknI9c_g)
+
 [CYSE640_BradChris_ProjectProposalReport.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalReport.pdf)  
 [CYSE640_BradChris_ProjectProposalPresentation.pdf](https://github.com/chrimson/ML-LTE-RFF/blob/main/doc/CYSE640_BradChris_ProjectProposalPresentation.pdf)
 
