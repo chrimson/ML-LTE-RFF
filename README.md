@@ -58,7 +58,7 @@ Clone this repository
 git clone https://github.com/chrimson/ML-LTE-RFF.git
 ```
 
-Begin trial by seeing `README.md` in the `generate` subdirectory
+Begin trial by seeing `README.md` in the [`generate`](https://chrimson.github.io/ML-LTE-RFF/generate) subdirectory
 
 ## License
 [MIT](LICENSE)
