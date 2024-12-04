@@ -8,10 +8,10 @@ Copy generated RFF Waveforms (RWF) in complex SigMF NumPy compatible format from
 cp ../generate/25x15_ue_rwf_data_cmplx dataset
 ```
 
-Launch service in one terminal, redirecting annoying warnings
+Launch service in one terminal
 
 ```
-python3 ml_lte_rff_svc.py 2>/dev/null
+python3 ml_lte_rff_svc.py
 ```
 
 In a different terminal, copy indexed RWF to current directory as MAC address, play with different MAC addresses, be creative, etc.
